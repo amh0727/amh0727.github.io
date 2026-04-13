@@ -1,41 +1,100 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>あなたのＨＰタイトル</title>
-<meta name="keywords" content="ページのキーワードA,B,C">
-<meta name="description" content="ページの説明">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhyoung An | ポートフォリオ</title>
+    <meta name="description" content="奈良先端科学技術大学院大学(NAIST) 修士課程、Minhyoung Anのポートフォリオサイトです。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<div id="outer">
-<header><div id="header-container"><div id="head-inner"><h1>あなたのＨＰタイトル</h1>
-<p class="description">あなたのＨＰの説明文</p></div></div>
-</header>
-<div id="content-wrapper">
-<main>
-<div id="inner">
-<h2>記事ページ見出し・大</h2>
-<p>文章あれこれ</p>
-<h3>記事ページ見出し・中</h3>
-<p>文章あれこれ</p>
-<h4>記事ページ見出し・小</h4>
-<p>文章あれこれ</p>
-</div>
-</main>
-<aside>
-<div id="middle-inner">
-<div class="side-title">menu</div>
-<div class="side">
-<ul>
-<li>記事ページへのリンク</li>
-<li>記事ページへのリンク</li>
-</ul>
-</div>
-</div>
-</aside>
-</div>
-<footer>© 2010 あなたのホームページ</footer>
-</div></body>
+    <!-- Abstract Background Animations -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero glass-card">
+            <div class="avatar">MA</div>
+            <div class="hero-content">
+                <h1>Minhyoung An</h1>
+                <p class="tagline">奈良先端科学技術大学院大学 (NAIST) 修士課程</p>
+                <div class="social-links">
+                    <a href="https://orcid.org/0009-0007-5153-4554" target="_blank" rel="noopener noreferrer" class="btn">
+                        <svg class="icon" viewBox="0 0 24 24" width="24" height="24">
+                            <!-- Custom Icon for Link -->
+                            <path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm-1.5 17.5h-2v-11h2v11zm-1-12.2c-.66 0-1.2-.54-1.2-1.2s.54-1.2 1.2-1.2 1.2.54 1.2 1.2-.54 1.2-1.2 1.2zm6.5 12.2h-2v-6.5c0-1.55-.03-3.55-2.16-3.55-2.17 0-2.5 1.7-2.5 3.44v6.61h-2v-11h3.78v1.5h.05c.53-1 1.81-2.05 3.73-2.05 4 0 4.74 2.63 4.74 6.05v5.5z"/>
+                        </svg>
+                        ORCID プロフィール
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Education Section -->
+            <section class="section">
+                <h2>学歴</h2>
+                <div class="card glass-card">
+                    <div class="card-header">
+                        <h3>奈良先端科学技術大学院大学 (NAIST)</h3>
+                        <span class="date">2025年10月 – 2027年3月</span>
+                    </div>
+                    <p class="card-body">先端科学技術研究科 修士課程</p>
+                </div>
+            </section>
+
+            <!-- Publications Section -->
+            <section class="section">
+                <h2>主な論文・発表</h2>
+                <div class="grid">
+                    <a href="https://doi.org/10.1145/3737611.3776950" target="_blank" class="card glass-card interactive">
+                        <div class="card-badge">2026年1月</div>
+                        <h3>Toward Semantically Aligned and Energy-Efficient On-Device Contextual Inference in Real-World Environments</h3>
+                        <p class="card-body">
+                            <strong>学会:</strong> ICDCN 2026 (第27回 分散コンピューティングとネットワーキングに関する国際会議)<br>
+                            <strong>日時:</strong> 2026年1月6日 ～ 1月9日<br>
+                            <strong>場所:</strong> 日本、奈良<br>
+                            <br>
+                            (DOI: 10.1145/3737611.3776950)
+                        </p>
+                    </a>
+                    
+                    <a href="https://doi.org/10.1145/3714394.3756346" target="_blank" class="card glass-card interactive">
+                        <div class="card-badge">2025年10月</div>
+                        <h3>Privacy-Preserving Real-Time Human Activity Recognition Using On-Device Small Language Models</h3>
+                        <p class="card-body">
+                            <strong>学会:</strong> Wellcomp 2025 (UbiComp / ISWC 2025 ワークショップ)<br>
+                            <strong>日時:</strong> 2025年10月12日 ～ 10月16日<br>
+                            <strong>場所:</strong> フィンランド、エスポー<br>
+                            <br>
+                            (DOI: 10.1145/3714394.3756346)
+                        </p>
+                    </a>
+
+                    <a href="https://doi.org/10.1109/AIoT66900.2025.00063" target="_blank" class="card glass-card interactive">
+                        <div class="card-badge">2025年12月</div>
+                        <h3>Small Language Model for Real-World HAR: Zero-Shot Performance and Energy Feasibility of On-Device Privacy-Preserving Contextual Inference</h3>
+                        <p class="card-body">
+                            <strong>学会:</strong> IEEE AIoT 2025 (Annual Congress on Artificial Intelligence of Things)<br>
+                            <strong>日時:</strong> 2025年12月3日 ～ 12月5日<br>
+                            <strong>場所:</strong> 日本、大阪<br>
+                            <br>
+                            (DOI: 10.1109/AIoT66900.2025.00063)
+                        </p>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Minhyoung An. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
 </html>
