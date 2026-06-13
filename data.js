@@ -21,13 +21,16 @@
      location : 開催地（任意）
      doi      : DOI（任意。あれば DOI バッジを表示）
      url      : クリック先 URL（任意。なければ DOI から自動生成）
-     links    : 追加リンク [{ label: "PDF", url: "..." }] （任意）
+     links    : 追加リンク [{ label: "PDF", url: "..." }, { label: "Code", url: "..." }] （任意）
+     featured : true にすると「主要論文」マーク（★）が付きます（任意）
    ===================================================================== */
 
 window.SITE_DATA = {
 
   profile: {
     initials: "MA",
+    // 顔写真を使う場合はパス/URL を入れてください（例: "me.jpg"）。空ならイニシャル表示。
+    photo: "",
     greeting: "こんにちは、私は",
     name: "Minhyoung An",
     affiliation: "奈良先端科学技術大学院大学",
@@ -37,17 +40,40 @@ window.SITE_DATA = {
       "ユーザのコンテキストを推定する研究をしています",
     // 研究キーワード（Hero に表示されるタグ）
     interests: [
-      "On-Device SLM",
+      "On-Device Language Models",
       "Privacy-Preserving HAR",
       "Contextual Inference",
       "Energy Efficiency",
     ],
-    orcid: "https://orcid.org/0009-0007-5153-4554",
+    // プロフィール下に並ぶリンク。icon は orcid/scholar/github/mail/cv/link から選択。
+    // URL を入れた項目だけ表示されます（空のものは出ません）。
+    links: [
+      { label: "ORCID", icon: "orcid", url: "https://orcid.org/0009-0007-5153-4554" },
+      { label: "Google Scholar", icon: "scholar", url: "" },
+      { label: "GitHub", icon: "github", url: "" },
+      { label: "Email", icon: "mail", url: "an.minhyoung.ak4(at.mark)naist.ac.jp" },        // 例: "mailto:you@example.com"
+      { label: "CV", icon: "cv", url: "" },             // 例: "cv.pdf"
+    ],
     // 著者リスト中でこれらの表記に一致した部分は自動的に太字（本人強調）になります
     authorAliases: ["An Minhyoung", "Minhyoung An"],
   },
 
+  // 最近の活動（新しい順）。論文の採択・受賞・入学などを書きます。任意。
+  news: [
+    { date: "2026.06", text: "DICOMO 2026（福岡）で口頭発表します．" },
+    { date: "2026.05", text: "第90回ユビキタスコンピューティングシステム研究会で発表しました．" },
+    { date: "2026.01", text: "ICDCN 2026 Doctoral Symposium（奈良）で発表しました．" },
+    { date: "2025.12", text: "IEEE AIoT 2025（大阪）でフルペーパーを発表しました．" },
+    { date: "2025.10", text: "NAIST 博士前期課程に秋入学．Wellcomp 2025（フィンランド）で発表しました．" },
+  ],
+
   education: [
+    {
+      school: "奈良先端科学技術大学院大学 (NAIST)",
+      dept: "先端科学技術研究科 研究生",
+      date: "2025年4月 – 2027年10月",
+      location: "奈良、日本",
+    },
     {
       school: "奈良先端科学技術大学院大学 (NAIST)",
       dept: "先端科学技術研究科 博士前期課程",
@@ -99,6 +125,7 @@ window.SITE_DATA = {
       date: "2025年12月3日 ～ 12月5日",
       location: "大阪、日本",
       doi: "10.1109/AIoT66900.2025.00063",
+      featured: true,
     },
     {
       title:
