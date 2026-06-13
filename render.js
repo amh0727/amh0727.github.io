@@ -78,6 +78,45 @@
       '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>',
   };
 
+  /* ---- メールアドレスのコピー（平文を埋め込まない難読化） ---- */
+  function decodeEmail(enc) {
+    try {
+      return atob(enc).split("").reverse().join("");
+    } catch (e) {
+      return "";
+    }
+  }
+  function wireEmailCopy(scope) {
+    scope.querySelectorAll(".profile-link[data-copy]").forEach((btn) => {
+      const labelSpan = btn.querySelector("span");
+      const original = labelSpan ? labelSpan.textContent : "";
+      btn.addEventListener("click", () => {
+        const email = decodeEmail(btn.getAttribute("data-copy"));
+        if (!email) return;
+        const done = () => {
+          if (!labelSpan) return;
+          labelSpan.textContent = "Copied!";
+          btn.classList.add("copied");
+          setTimeout(() => {
+            labelSpan.textContent = original;
+            btn.classList.remove("copied");
+          }, 1500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(done, done);
+        } else {
+          const ta = document.createElement("textarea");
+          ta.value = email;
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand("copy"); } catch (e) {}
+          document.body.removeChild(ta);
+          done();
+        }
+      });
+    });
+  }
+
   /* ---- Hero / Profile ---- */
   function renderProfile() {
     const p = data.profile || {};
@@ -103,18 +142,24 @@
         .join("");
     }
 
-    // プロフィールリンク（URL が入っているものだけ表示）
+    // プロフィールリンク（url または copyEmail があるものだけ表示）
     const linksEl = $("profile-links");
     if (linksEl && Array.isArray(p.links)) {
       linksEl.innerHTML = p.links
-        .filter((l) => l && l.url)
+        .filter((l) => l && (l.url || l.copyEmail))
         .map((l) => {
           const icon = LINK_ICON[l.icon] || LINK_ICON.link;
+          const label = `${icon}<span>${escapeHtml(l.label)}</span>`;
+          // メールはコピー専用ボタン（アドレスを平文で埋め込まない）
+          if (l.copyEmail) {
+            return `<button type="button" class="profile-link" data-copy="${escapeHtml(l.copyEmail)}">${label}</button>`;
+          }
           const isMail = /^mailto:/i.test(l.url);
           const attrs = isMail ? "" : ' target="_blank" rel="noopener noreferrer"';
-          return `<a class="profile-link" href="${escapeHtml(l.url)}"${attrs}>${icon}<span>${escapeHtml(l.label)}</span></a>`;
+          return `<a class="profile-link" href="${escapeHtml(l.url)}"${attrs}>${label}</a>`;
         })
         .join("");
+      wireEmailCopy(linksEl);
     }
 
     if ($("footer-name")) $("footer-name").textContent = p.name || "";

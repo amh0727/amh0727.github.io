@@ -31,13 +31,13 @@ window.SITE_DATA = {
     initials: "MA",
     // 顔写真を使う場合はパス/URL を入れてください（例: "me.jpg"）。空ならイニシャル表示。
     photo: "",
-    greeting: "こんにちは、私は",
+    greeting: "Researcher @ NAIST",
     name: "Minhyoung An",
     affiliation: "奈良先端科学技術大学院大学",
     program: "博士前期課程",
     description:
-      "オンデバイス SLM によりプライバシに考慮した<br class='hide-mobile'>" +
-      "ユーザのコンテキストを推定する研究をしています",
+      "端末上で動く小規模言語モデル（SLM）を用いて、" +
+      "データを外部に出さずにユーザの行動・状況を推定する研究に取り組んでいます。",
     // 研究キーワード（Hero に表示されるタグ）
     interests: [
       "On-Device Language Models",
@@ -46,12 +46,16 @@ window.SITE_DATA = {
       "Energy Efficiency",
     ],
     // プロフィール下に並ぶリンク。icon は orcid/scholar/github/mail/cv/link から選択。
-    // URL を入れた項目だけ表示されます（空のものは出ません）。
+    // url を入れた項目だけ表示されます（空のものは出ません）。
+    // メールは url ではなく copyEmail を使うと「クリックでコピー」ボタンになり、
+    // ソース上にアドレスが平文で残らないためボットに収集されません。
+    //   copyEmail の作り方: アドレスを逆順にして base64 した文字列を入れる。
+    //   例) node -e 'console.log(Buffer.from("you@x.com".split("").reverse().join("")).toString("base64"))'
     links: [
       { label: "ORCID", icon: "orcid", url: "https://orcid.org/0009-0007-5153-4554" },
       { label: "Google Scholar", icon: "scholar", url: "" },
-      { label: "GitHub", icon: "github", url: "" },
-      { label: "Email", icon: "mail", url: "an.minhyoung.ak4(at.mark)naist.ac.jp" },        // 例: "mailto:you@example.com"
+      { label: "GitHub", icon: "github", url: "https://github.com/amh0727/" },
+      { label: "Email", icon: "mail", copyEmail: "cGouY2EudHNpYW5ANGthLmdudW95aG5pbS5uYQ==" },
       { label: "CV", icon: "cv", url: "" },             // 例: "cv.pdf"
     ],
     // 著者リスト中でこれらの表記に一致した部分は自動的に太字（本人強調）になります
@@ -107,7 +111,7 @@ window.SITE_DATA = {
     {
       title:
         "Toward Semantically Aligned and Energy-Efficient On-Device Contextual Inference in Real-World Environments",
-      authors: "",
+      authors: "Minhyoung An, Wataru Sasaki, Hirohiko Suwa, Keiichi Yasumoto",
       venue: "ICDCN 2026 (Doctoral Symposium, Short Paper)",
       type: "Short Paper",
       year: 2026,
@@ -118,7 +122,7 @@ window.SITE_DATA = {
     {
       title:
         "Small Language Model for Real-World HAR: Zero-Shot Performance and Energy Feasibility of On-Device Privacy-Preserving Contextual Inference",
-      authors: "",
+      authors: "Minhyoung An, Wataru Sasaki, Hirohiko Suwa, Keiichi Yasumoto",
       venue: "IEEE AIoT 2025",
       type: "Full Paper",
       year: 2025,
@@ -130,7 +134,7 @@ window.SITE_DATA = {
     {
       title:
         "Privacy-Preserving Real-Time Human Activity Recognition Using On-Device Small Language Models",
-      authors: "",
+      authors: "Minhyoung An, Wataru Sasaki, Keiichi Yasumoto",
       venue: "Wellcomp 2025 — UbiComp / ISWC 2025 Workshop",
       type: "Workshop",
       year: 2025,
