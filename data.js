@@ -43,6 +43,8 @@ window.SITE_DATA = {
       "Energy Efficiency",
     ],
     orcid: "https://orcid.org/0009-0007-5153-4554",
+    // 著者リスト中でこれらの表記に一致した部分は自動的に太字（本人強調）になります
+    authorAliases: ["An Minhyoung", "Minhyoung An"],
   },
 
   education: [

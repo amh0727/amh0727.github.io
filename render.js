@@ -16,11 +16,23 @@
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;");
   }
+  function escapeRegExp(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
   function authorMarkup(authors) {
-    return escapeHtml(authors).replace(
-      /\*\*(.+?)\*\*/g,
-      '<strong class="author-self">$1</strong>'
-    );
+    const html = escapeHtml(authors);
+    // 明示的に **...** で囲まれている場合はそれを優先
+    if (html.includes("**")) {
+      return html.replace(/\*\*(.+?)\*\*/g, '<strong class="author-self">$1</strong>');
+    }
+    // それ以外は profile.authorAliases に一致した部分を自動で強調
+    const aliases = ((data.profile && data.profile.authorAliases) || [])
+      .filter(Boolean)
+      .map(escapeHtml)
+      .sort((a, b) => b.length - a.length);
+    if (!aliases.length) return html;
+    const re = new RegExp("(" + aliases.map(escapeRegExp).join("|") + ")", "g");
+    return html.replace(re, '<strong class="author-self">$1</strong>');
   }
   // type 名 → CSS クラスのサフィックス
   function typeClass(type) {
@@ -52,7 +64,7 @@
   function renderProfile() {
     const p = data.profile || {};
     if (p.initials) {
-      $("hero-initials").textContent = p.initials;
+      if ($("hero-initials")) $("hero-initials").textContent = p.initials;
       const logo = document.querySelector(".nav-logo");
       if (logo) logo.textContent = p.initials;
     }
@@ -144,14 +156,13 @@
     // Stats
     const statsEl = $("pub-stats");
     if (statsEl) {
-      const years = pubs.map((p) => p.year).filter(Boolean);
+      // 種別に日本語が含まれていれば国内発表、そうでなければ国際発表とみなす
+      const hasJa = (s) => /[\u3040-\u30ff\u4e00-\u9fff]/.test(s || "");
+      const domestic = pubs.filter((p) => hasJa(p.type)).length;
       const stats = [
-        { num: pubs.length, label: "Publications" },
-        { num: new Set(pubs.map((p) => p.type).filter(Boolean)).size, label: "Venues" },
-        {
-          num: years.length ? `${Math.min(...years)}–${Math.max(...years)}` : "—",
-          label: "Active Years",
-        },
+        { num: pubs.length, label: "Total" },
+        { num: pubs.length - domestic, label: "International" },
+        { num: domestic, label: "Domestic" },
       ];
       statsEl.innerHTML = stats
         .map(
