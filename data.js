@@ -23,21 +23,23 @@
      url      : クリック先 URL（任意。なければ DOI から自動生成）
      links    : 追加リンク [{ label: "PDF", url: "..." }, { label: "Code", url: "..." }] （任意）
      featured : true にすると「主要論文」マーク（★）が付きます（任意）
+
+   多言語: venue / type / date / location などの表示テキストは、文字列の代わりに
+     { ja: "…", en: "…", ko: "…" } と書くと言語別に表示されます。
+     title と authors は原文のまま（翻訳しない）を推奨します。
    ===================================================================== */
 
 window.SITE_DATA = {
+
+  // 既定の言語。右上のボタンで en / ja / ko を切替できます（選択は記憶されます）。
+  // UI ラベル・自己紹介・News・学歴の各言語テキストは i18n/ja.js · en.js · ko.js にあります。
+  defaultLang: "ja",
 
   profile: {
     initials: "MA",
     // 顔写真を使う場合はパス/URL を入れてください（例: "me.jpg"）。空ならイニシャル表示。
     photo: "",
-    greeting: "Researcher @ NAIST",
     name: "Minhyoung An",
-    affiliation: "奈良先端科学技術大学院大学",
-    program: "博士前期課程",
-    description:
-      "端末上で動く小規模言語モデル（SLM）を用いて、" +
-      "データを外部に出さずにユーザの行動・状況を推定する研究に取り組んでいます。",
     // 研究キーワード（Hero に表示されるタグ）
     interests: [
       "On-Device Language Models",
@@ -62,51 +64,32 @@ window.SITE_DATA = {
     authorAliases: ["An Minhyoung", "Minhyoung An"],
   },
 
-  // 最近の活動（新しい順）。論文の採択・受賞・入学などを書きます。任意。
-  news: [
-    { date: "2026.06", text: "DICOMO 2026（福岡）で口頭発表します．" },
-    { date: "2026.05", text: "第90回ユビキタスコンピューティングシステム研究会で発表しました．" },
-    { date: "2026.01", text: "ICDCN 2026 Doctoral Symposium（奈良）で発表しました．" },
-    { date: "2025.12", text: "IEEE AIoT 2025（大阪）でフルペーパーを発表しました．" },
-    { date: "2025.10", text: "NAIST 博士前期課程に秋入学．Wellcomp 2025（フィンランド）で発表しました．" },
-  ],
-
-  education: [
-    {
-      school: "奈良先端科学技術大学院大学 (NAIST)",
-      dept: "先端科学技術研究科 博士前期課程",
-      date: "2025年10月 – 2027年3月",
-      location: "奈良、日本",
-    },
-    {
-      school: "奈良先端科学技術大学院大学 (NAIST)",
-      dept: "先端科学技術研究科 研究生",
-      date: "2025年4月 – 2027年10月",
-      location: "奈良、日本",
-    },
-  ],
-
   // ▼▼▼ 論文を追加する場所（新しい順に上から）▼▼▼
   publications: [
     {
-        title:
-      "行動認識のための住宅間データ転移に向けた言語を用いた空間意味情報推定手法の提案",
+      // タイトルと著者は原文のまま。date/location/type などは { ja, en, ko } で言語別に。
+      title:
+        "行動認識のための住宅間データ転移に向けた言語を用いた空間意味情報推定手法の提案",
       authors: "An Minhyoung, 菊池尊勝, 庭本眞太郎, 新明勇翔, 竹田圭汰, Liu Yuexiao, 松井智一, 安本慶一",
       venue: "DICOMO 2026",
-      type: "国内学会",
+      type: { ja: "国内学会", en: "Domestic Conf.", ko: "국내 학회" },
       year: 2026,
-      date: "2026年6月24日 ～ 6月26日",
-      location: "福岡、日本",
+      date: { ja: "2026年6月24日 ～ 6月26日", en: "Jun 24–26, 2026", ko: "2026년 6월 24일 ~ 26일" },
+      location: { ja: "福岡、日本", en: "Fukuoka, Japan", ko: "후쿠오카, 일본" },
     },
     {
-        title:
-      "混練過程における生地状態変化のマルチモーダルセンシングに関する検討",
+      title:
+        "混練過程における生地状態変化のマルチモーダルセンシングに関する検討",
       authors: "An Minhyoung, 佐々木航, 松井智一, 安本慶一, 太田茂之",
-      venue: "第90回ユビキタスコンピューティングシステム研究会",
-      type: "国内研究会",
+      venue: {
+        ja: "第90回ユビキタスコンピューティングシステム研究会",
+        en: "90th Ubiquitous Computing System Workshop (IPSJ)",
+        ko: "제90회 유비쿼터스 컴퓨팅 시스템 연구회",
+      },
+      type: { ja: "国内研究会", en: "Domestic Workshop", ko: "국내 연구회" },
       year: 2026,
-      date: "2026年5月27日 ～ 5月28日",
-      location: "奈良、日本",
+      date: { ja: "2026年5月27日 ～ 5月28日", en: "May 27–28, 2026", ko: "2026년 5월 27일 ~ 28일" },
+      location: { ja: "奈良、日本", en: "Nara, Japan", ko: "나라, 일본" },
     },
     {
       title:
@@ -115,8 +98,8 @@ window.SITE_DATA = {
       venue: "ICDCN 2026 (Doctoral Symposium, Short Paper)",
       type: "Short Paper",
       year: 2026,
-      date: "2026年1月6日 ～ 1月9日",
-      location: "奈良、日本",
+      date: { ja: "2026年1月6日 ～ 1月9日", en: "Jan 6–9, 2026", ko: "2026년 1월 6일 ~ 9일" },
+      location: { ja: "奈良、日本", en: "Nara, Japan", ko: "나라, 일본" },
       doi: "10.1145/3737611.3776950",
     },
     {
@@ -126,8 +109,8 @@ window.SITE_DATA = {
       venue: "IEEE AIoT 2025",
       type: "Full Paper",
       year: 2025,
-      date: "2025年12月3日 ～ 12月5日",
-      location: "大阪、日本",
+      date: { ja: "2025年12月3日 ～ 12月5日", en: "Dec 3–5, 2025", ko: "2025년 12월 3일 ~ 5일" },
+      location: { ja: "大阪、日本", en: "Osaka, Japan", ko: "오사카, 일본" },
       doi: "10.1109/AIoT66900.2025.00063",
       featured: true,
     },
@@ -138,8 +121,8 @@ window.SITE_DATA = {
       venue: "Wellcomp 2025 — UbiComp / ISWC 2025 Workshop",
       type: "Workshop",
       year: 2025,
-      date: "2025年10月12日 ～ 10月16日",
-      location: "エスポー、フィンランド",
+      date: { ja: "2025年10月12日 ～ 10月16日", en: "Oct 12–16, 2025", ko: "2025년 10월 12일 ~ 16일" },
+      location: { ja: "エスポー、フィンランド", en: "Espoo, Finland", ko: "에스포, 핀란드" },
       doi: "10.1145/3714394.3756346",
     },
   ],

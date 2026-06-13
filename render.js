@@ -6,7 +6,42 @@
   "use strict";
 
   const data = window.SITE_DATA || {};
+  const I18N = window.SITE_I18N || {};
   const $ = (id) => document.getElementById(id);
+
+  /* ---- 多言語 (i18n) ---- */
+  const SUPPORTED = ["en", "ja", "ko"];
+  const DEFAULT_LANG = SUPPORTED.includes(data.defaultLang) ? data.defaultLang : "en";
+  let lang = DEFAULT_LANG;
+
+  function detectLang() {
+    try {
+      const saved = localStorage.getItem("lang");
+      if (saved && SUPPORTED.includes(saved)) return saved;
+    } catch (e) {}
+    const n = (navigator.language || "").slice(0, 2).toLowerCase();
+    return SUPPORTED.includes(n) ? n : DEFAULT_LANG;
+  }
+
+  const L = (lng) => I18N[lng] || {};
+  // 文字列でも { ja, en, ko } でも解決する
+  function t(v) {
+    if (v && typeof v === "object" && !Array.isArray(v)) {
+      return v[lang] ?? v[DEFAULT_LANG] ?? Object.values(v)[0] ?? "";
+    }
+    return v == null ? "" : v;
+  }
+  // UI ラベル（既定言語をフォールバック）
+  function ui(key) {
+    const u = Object.assign({}, L(DEFAULT_LANG).ui || {}, L(lang).ui || {});
+    return u[key] != null ? u[key] : key;
+  }
+  function trProfile() {
+    return Object.assign({}, L(DEFAULT_LANG).profile || {}, L(lang).profile || {});
+  }
+  function trList(key) {
+    return L(lang)[key] || L(DEFAULT_LANG)[key] || [];
+  }
 
   /* ---- 小さなヘルパ ---- */
   // **text** を <strong> に変換（著者名の強調用）。HTML エスケープ込み。
@@ -95,7 +130,7 @@
         if (!email) return;
         const done = () => {
           if (!labelSpan) return;
-          labelSpan.textContent = "Copied!";
+          labelSpan.textContent = ui("copied");
           btn.classList.add("copied");
           setTimeout(() => {
             labelSpan.textContent = original;
@@ -129,11 +164,12 @@
       $("hero-initials").textContent = p.initials;
     }
 
-    if ($("hero-greeting")) $("hero-greeting").textContent = p.greeting || "";
+    const tp = trProfile();
+    if ($("hero-greeting")) $("hero-greeting").textContent = tp.greeting || "";
     if ($("hero-name")) $("hero-name").textContent = p.name || "";
-    if ($("hero-affiliation")) $("hero-affiliation").textContent = p.affiliation || "";
-    if ($("hero-program")) $("hero-program").textContent = p.program || "";
-    if ($("hero-description")) $("hero-description").innerHTML = p.description || "";
+    if ($("hero-affiliation")) $("hero-affiliation").textContent = tp.affiliation || "";
+    if ($("hero-program")) $("hero-program").textContent = tp.program || "";
+    if ($("hero-description")) $("hero-description").innerHTML = tp.description || "";
 
     const interestsEl = $("hero-interests");
     if (interestsEl && Array.isArray(p.interests)) {
@@ -169,38 +205,21 @@
     }
   }
 
-  /* ---- News ---- */
-  function renderNews() {
-    const list = $("news-list");
-    const section = $("news");
-    const items = data.news || [];
-    if (!list) return;
-    if (!items.length) {
-      if (section) section.style.display = "none";
-      return;
-    }
-    list.innerHTML = items
-      .map(
-        (n) => `
-      <li class="news-item">
-        <span class="news-date">${escapeHtml(n.date || "")}</span>
-        <span class="news-text">${escapeHtml(n.text || "")}</span>
-      </li>`
-      )
-      .join("");
-  }
-
   /* ---- Education ---- */
   function renderEducation() {
     const list = $("edu-list");
     if (!list) return;
-    list.innerHTML = (data.education || [])
+    list.innerHTML = trList("education")
       .map((e) => {
-        const meta = [e.date, e.location].filter(Boolean).map(escapeHtml).join("  ·  ");
+        const meta = [e.date, e.location]
+          .map((v) => t(v))
+          .filter(Boolean)
+          .map(escapeHtml)
+          .join("  ·  ");
         return `
       <div class="edu-item">
-        <h3 class="edu-school">${escapeHtml(e.school)}</h3>
-        ${e.dept ? `<p class="edu-dept">${escapeHtml(e.dept)}</p>` : ""}
+        <h3 class="edu-school">${escapeHtml(t(e.school))}</h3>
+        ${e.dept ? `<p class="edu-dept">${escapeHtml(t(e.dept))}</p>` : ""}
         ${meta ? `<p class="edu-line">${meta}</p>` : ""}
       </div>`;
       })
@@ -210,13 +229,15 @@
   /* ---- Publications ---- */
   function pubCard(pub) {
     const url = pub.url || (pub.doi ? `https://doi.org/${pub.doi}` : null);
-    const titleInner = escapeHtml(pub.title);
+    const titleInner = escapeHtml(t(pub.title));
     const title = url
       ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${titleInner}</a>`
       : titleInner;
+    const typeStr = t(pub.type);
 
     // 会議名 · 日付 · 場所 を 1 行に
     const venueLine = [pub.venue, pub.date, pub.location]
+      .map((v) => t(v))
       .filter(Boolean)
       .map(escapeHtml)
       .join("  ·  ");
@@ -240,11 +261,11 @@
       <article class="pub-item" data-year="${pub.year}">
         <div class="pub-year-col">
           <span class="pub-year">${escapeHtml(String(pub.year || ""))}</span>
-          ${pub.type ? `<span class="pub-type pub-type-${typeClass(pub.type)}">${escapeHtml(pub.type)}</span>` : ""}
+          ${typeStr ? `<span class="pub-type pub-type-${typeClass(typeStr)}">${escapeHtml(typeStr)}</span>` : ""}
         </div>
         <div class="pub-body">
-          <h3 class="pub-title">${pub.featured ? `<span class="pub-star" title="主要論文">${ICON.star}</span>` : ""}${title}</h3>
-          ${pub.authors ? `<p class="pub-authors">${authorMarkup(pub.authors)}</p>` : ""}
+          <h3 class="pub-title">${pub.featured ? `<span class="pub-star">${ICON.star}</span>` : ""}${title}</h3>
+          ${pub.authors ? `<p class="pub-authors">${authorMarkup(t(pub.authors))}</p>` : ""}
           ${venueLine ? `<p class="pub-venue-line">${venueLine}</p>` : ""}
           ${linkParts.length ? `<div class="pub-links">${linkParts.join("")}</div>` : ""}
         </div>
@@ -261,11 +282,18 @@
     if (statsEl) {
       // 種別に日本語が含まれていれば国内発表、そうでなければ国際発表とみなす
       const hasJa = (s) => /[\u3040-\u30ff\u4e00-\u9fff]/.test(s || "");
-      const domestic = pubs.filter((p) => hasJa(p.type)).length;
+      const rawType = (p) => {
+        const x = p.type;
+        return x && typeof x === "object"
+          ? x.ja || x.en || Object.values(x)[0] || ""
+          : x || "";
+      };
+      const domestic = pubs.filter((p) => hasJa(rawType(p))).length;
       const intl = pubs.length - domestic;
-      const sep = `<span style="opacity:.45"> \u30fb </span>`;
-      statsEl.innerHTML =
-        `\u5168 <b>${pubs.length}</b> \u4ef6${sep}\u56fd\u969b <b>${intl}</b>${sep}\u56fd\u5185 <b>${domestic}</b>`;
+      statsEl.innerHTML = (ui("summary") || "{total} / {intl} / {domestic}")
+        .replace("{total}", `<b>${pubs.length}</b>`)
+        .replace("{intl}", `<b>${intl}</b>`)
+        .replace("{domestic}", `<b>${domestic}</b>`);
     }
 
     // Year filter chips
@@ -273,37 +301,47 @@
     const years = Array.from(new Set(pubs.map((p) => p.year).filter(Boolean))).sort(
       (a, b) => b - a
     );
-    if (filtersEl && years.length > 1) {
+    if (filtersEl) {
       filtersEl.innerHTML =
-        `<button class="filter-chip active" data-filter="all">All</button>` +
-        years
-          .map((y) => `<button class="filter-chip" data-filter="${y}">${y}</button>`)
-          .join("");
-      filtersEl.addEventListener("click", (e) => {
-        const btn = e.target.closest(".filter-chip");
-        if (!btn) return;
-        filtersEl.querySelectorAll(".filter-chip").forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        const f = btn.dataset.filter;
-        list.querySelectorAll(".pub-card").forEach((card) => {
-          const show = f === "all" || card.dataset.year === f;
-          card.classList.toggle("hidden", !show);
-        });
-      });
+        years.length > 1
+          ? `<button class="filter-chip active" data-filter="all">${escapeHtml(ui("filterAll"))}</button>` +
+            years
+              .map((y) => `<button class="filter-chip" data-filter="${y}">${y}</button>`)
+              .join("")
+          : "";
     }
 
     list.innerHTML = pubs.map(pubCard).join("");
   }
 
-  /* ---- Scroll animations & sidebar scrollspy ---- */
-  function setupInteractions() {
-    // フェードイン
-    const fade = new IntersectionObserver(
+  // フィルタのクリック処理（1 回だけ登録）
+  function setupFilters() {
+    const filtersEl = $("pub-filters");
+    const list = $("pub-list");
+    if (!filtersEl || !list) return;
+    filtersEl.addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-chip");
+      if (!btn) return;
+      filtersEl.querySelectorAll(".filter-chip").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const f = btn.dataset.filter;
+      list.querySelectorAll(".pub-item").forEach((item) => {
+        const show = f === "all" || item.dataset.year === f;
+        item.classList.toggle("hidden", !show);
+      });
+    });
+  }
+
+  /* ---- フェードイン（再描画ごとに貼り直す） ---- */
+  let fadeObserver = null;
+  function setupFade() {
+    if (fadeObserver) fadeObserver.disconnect();
+    fadeObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
-            fade.unobserve(entry.target);
+            fadeObserver.unobserve(entry.target);
           }
         });
       },
@@ -311,30 +349,39 @@
     );
     document
       .querySelectorAll(".pub-item, .edu-item, .section-header")
-      .forEach((el) => fade.observe(el));
+      .forEach((el) => fadeObserver.observe(el));
+  }
 
-    // サイドバーのナビゲーションを現在のセクションに合わせてハイライト
+  /* ---- サイドバーのスクロール連動ハイライト（1 回だけ） ---- */
+  function setupScrollspy() {
     const navLinks = Array.from(document.querySelectorAll(".side-nav a"));
     const sections = navLinks
       .map((a) => document.getElementById(a.getAttribute("href").slice(1)))
       .filter(Boolean);
-    if (sections.length) {
-      const spy = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            navLinks.forEach((a) =>
-              a.classList.toggle(
-                "active",
-                a.getAttribute("href") === "#" + entry.target.id
-              )
-            );
-          });
-        },
-        { rootMargin: "-30% 0px -60% 0px" }
-      );
-      sections.forEach((s) => spy.observe(s));
-    }
+    if (!sections.length) return;
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navLinks.forEach((a) =>
+            a.classList.toggle("active", a.getAttribute("href") === "#" + entry.target.id)
+          );
+        });
+      },
+      { rootMargin: "-30% 0px -60% 0px" }
+    );
+    sections.forEach((s) => spy.observe(s));
+  }
+
+  /* ---- UI ラベル（見出し・ナビ）を現在の言語に ---- */
+  function applyUiLabels() {
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      el.textContent = ui(el.getAttribute("data-i18n"));
+    });
+    document.querySelectorAll("[data-nav]").forEach((el) => {
+      el.textContent = ui(el.getAttribute("data-nav"));
+    });
+    document.documentElement.setAttribute("lang", lang);
   }
 
   /* ---- Dark / Light theme toggle ---- */
@@ -355,11 +402,41 @@
     });
   }
 
+  /* ---- 言語切替 ---- */
+  function setupLang() {
+    const sw = $("lang-switch");
+    if (!sw) return;
+    const mark = () =>
+      sw.querySelectorAll("button").forEach((b) =>
+        b.classList.toggle("active", b.dataset.lang === lang)
+      );
+    mark();
+    sw.addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-lang]");
+      if (!b || b.dataset.lang === lang) return;
+      lang = b.dataset.lang;
+      try {
+        localStorage.setItem("lang", lang);
+      } catch (e) {}
+      mark();
+      renderAll();
+    });
+  }
+
+  /* ---- 全体描画（言語切替時に呼ぶ） ---- */
+  function renderAll() {
+    renderProfile();
+    renderEducation();
+    renderPublications();
+    applyUiLabels();
+    setupFade();
+  }
+
   /* ---- Boot ---- */
-  renderProfile();
-  renderNews();
-  renderEducation();
-  renderPublications();
-  setupInteractions();
+  lang = detectLang();
+  renderAll();
+  setupFilters();
+  setupScrollspy();
   setupTheme();
+  setupLang();
 })();
