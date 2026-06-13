@@ -388,135 +388,72 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
 }
 
 /* =============================================
-   Cards (shared)
+   Education & Publications — simple list
    ============================================= */
 .edu-list,
 .pub-list {
     display: flex;
     flex-direction: column;
-    gap: 14px;
 }
 
-.edu-card,
-.pub-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 22px;
-    display: flex;
-    gap: 20px;
-    box-shadow: var(--shadow-sm);
-    transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease),
-        transform 0.2s var(--ease);
+.edu-item,
+.pub-item {
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(10px);
 }
 
-.edu-card.visible,
-.pub-card.visible {
+.edu-list .edu-item:first-child,
+.pub-list .pub-item:first-child {
+    border-top: none;
+    padding-top: 2px;
+}
+
+.edu-item.visible,
+.pub-item.visible {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.55s var(--ease), transform 0.55s var(--ease),
-        border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
 }
 
-.edu-card:hover,
-.pub-card:hover {
-    border-color: var(--border-strong);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-}
-
-/* Education */
-.edu-icon {
-    width: 46px;
-    height: 46px;
-    background: var(--accent-soft);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-    flex-shrink: 0;
-}
-
-.edu-content h3 {
-    font-size: 1.05rem;
+/* Education list */
+.edu-school {
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 4px;
     letter-spacing: -0.2px;
+    margin-bottom: 3px;
 }
 
 .edu-dept {
     font-size: 0.9rem;
     color: var(--text-muted);
-    margin-bottom: 12px;
+    margin-bottom: 5px;
 }
 
-.edu-meta {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-}
-
-.edu-meta span {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-
-.edu-meta svg {
+.edu-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
     color: var(--text-soft);
 }
 
-/* =============================================
-   Publication stats
-   ============================================= */
+/* Publications summary line (replaces stat boxes) */
 .pub-stats {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-    flex-wrap: wrap;
-}
-
-.stat {
-    flex: 1;
-    min-width: 100px;
-    background: var(--bg-subtle);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 14px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.stat-num {
-    font-size: 1.45rem;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.15;
-    letter-spacing: -0.5px;
-}
-
-.stat-label {
-    font-size: 0.72rem;
+    font-size: 0.88rem;
     color: var(--text-muted);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
+    margin-bottom: 14px;
 }
 
-/* =============================================
-   Publication filters
-   ============================================= */
+.pub-stats b {
+    color: var(--text);
+    font-weight: 600;
+}
+
+/* Filters */
 .pub-filters {
     display: flex;
     gap: 6px;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
 }
 
@@ -527,7 +464,7 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
     color: var(--text-muted);
     background: transparent;
     border: 1px solid var(--border-strong);
-    padding: 6px 14px;
+    padding: 5px 13px;
     border-radius: 999px;
     cursor: pointer;
     transition: all 0.2s var(--ease);
@@ -544,42 +481,40 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
     border-color: var(--accent);
 }
 
-/* =============================================
-   Publication card
-   ============================================= */
-.pub-card.hidden {
+/* Publication item */
+.pub-item {
+    display: flex;
+    gap: 18px;
+}
+
+.pub-item.hidden {
     display: none;
 }
 
-.pub-side {
+.pub-year-col {
+    flex-shrink: 0;
+    width: 54px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    flex-shrink: 0;
-    width: 82px;
+    gap: 6px;
+    padding-top: 2px;
 }
 
-.pub-year-badge {
+.pub-year {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--text);
-    letter-spacing: 0.3px;
 }
 
 .pub-type {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 500;
     color: var(--text-muted);
-    background: var(--bg-subtle);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 3px 8px;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    line-height: 1.35;
-    width: fit-content;
+    gap: 5px;
+    line-height: 1.3;
 }
 
 .pub-type::before {
@@ -598,22 +533,22 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
 .pub-type-poster::before   { background: #38bdf8; }
 .pub-type-preprint::before { background: #94a3b8; }
 
-.pub-content {
+.pub-body {
     flex: 1;
     min-width: 0;
 }
 
 .pub-title {
-    font-size: 1.02rem;
+    font-size: 1rem;
     font-weight: 600;
-    line-height: 1.5;
-    margin-bottom: 8px;
+    line-height: 1.45;
+    margin-bottom: 4px;
     letter-spacing: -0.2px;
 }
 
 .pub-star {
     color: #f59e0b;
-    margin-right: 5px;
+    margin-right: 4px;
     vertical-align: -1px;
 }
 
@@ -633,9 +568,10 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
 }
 
 .pub-authors {
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     color: var(--text-muted);
-    margin-bottom: 10px;
+    margin-bottom: 3px;
+    line-height: 1.5;
 }
 
 .pub-authors .author-self {
@@ -643,73 +579,30 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
     font-weight: 600;
 }
 
-.pub-venue {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 0.88rem;
-    color: var(--text);
-    font-weight: 500;
-    margin-bottom: 10px;
-    line-height: 1.55;
-}
-
-.pub-venue svg {
-    color: var(--accent);
-    flex-shrink: 0;
-    margin-top: 3px;
-}
-
-.pub-meta {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-}
-
-.pub-meta span {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+.pub-venue-line {
     font-size: 0.82rem;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-
-.pub-meta svg {
     color: var(--text-soft);
+    margin-bottom: 8px;
+    line-height: 1.5;
 }
 
-.pub-footer {
+.pub-links {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    gap: 14px;
     flex-wrap: wrap;
-}
-
-.pub-doi {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.74rem;
-    color: var(--text-soft);
 }
 
 .pub-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
     font-size: 0.78rem;
     font-weight: 500;
     color: var(--accent);
     text-decoration: none;
-    padding: 5px 11px;
-    border-radius: 7px;
-    border: 1px solid var(--border-strong);
-    transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+    transition: color 0.2s var(--ease);
 }
 
 .pub-link:hover {
-    border-color: var(--accent-soft);
-    background: var(--accent-soft);
+    color: var(--accent-hover);
+    text-decoration: underline;
 }
 
 /* =============================================
@@ -775,20 +668,16 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
         font-size: 20px;
     }
 
-    .edu-card,
-    .pub-card {
+    .pub-item {
         flex-direction: column;
-        gap: 14px;
+        gap: 8px;
     }
 
-    .pub-side {
+    .pub-year-col {
         flex-direction: row;
         width: auto;
         align-items: center;
         gap: 10px;
-    }
-
-    .pub-meta {
-        gap: 12px;
+        padding-top: 0;
     }
 }

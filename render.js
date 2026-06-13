@@ -195,20 +195,15 @@
     const list = $("edu-list");
     if (!list) return;
     list.innerHTML = (data.education || [])
-      .map(
-        (e) => `
-      <div class="edu-card">
-        <div class="edu-icon">${ICON.cap}</div>
-        <div class="edu-content">
-          <h3>${escapeHtml(e.school)}</h3>
-          ${e.dept ? `<p class="edu-dept">${escapeHtml(e.dept)}</p>` : ""}
-          <div class="edu-meta">
-            ${e.date ? `<span class="edu-date">${ICON.calendar}${escapeHtml(e.date)}</span>` : ""}
-            ${e.location ? `<span class="edu-location">${ICON.pin}${escapeHtml(e.location)}</span>` : ""}
-          </div>
-        </div>
-      </div>`
-      )
+      .map((e) => {
+        const meta = [e.date, e.location].filter(Boolean).map(escapeHtml).join("  ·  ");
+        return `
+      <div class="edu-item">
+        <h3 class="edu-school">${escapeHtml(e.school)}</h3>
+        ${e.dept ? `<p class="edu-dept">${escapeHtml(e.dept)}</p>` : ""}
+        ${meta ? `<p class="edu-line">${meta}</p>` : ""}
+      </div>`;
+      })
       .join("");
   }
 
@@ -220,31 +215,38 @@
       ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${titleInner}</a>`
       : titleInner;
 
-    const links = (pub.links || [])
-      .map(
-        (l) =>
-          `<a class="pub-link" href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${ICON.link}${escapeHtml(l.label)}</a>`
-      )
-      .join("");
+    // 会議名 · 日付 · 場所 を 1 行に
+    const venueLine = [pub.venue, pub.date, pub.location]
+      .filter(Boolean)
+      .map(escapeHtml)
+      .join("  ·  ");
+
+    // リンク（DOI + 追加リンク）をテキストリンクとして並べる
+    const linkParts = [];
+    if (pub.doi) {
+      linkParts.push(
+        `<a class="pub-link" href="https://doi.org/${escapeHtml(pub.doi)}" target="_blank" rel="noopener noreferrer">DOI</a>`
+      );
+    }
+    (pub.links || []).forEach((l) => {
+      if (l && l.url) {
+        linkParts.push(
+          `<a class="pub-link" href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a>`
+        );
+      }
+    });
 
     return `
-      <article class="pub-card" data-year="${pub.year}">
-        <div class="pub-side">
-          <div class="pub-year-badge">${escapeHtml(String(pub.year || ""))}</div>
-          ${pub.type ? `<div class="pub-type pub-type-${typeClass(pub.type)}">${escapeHtml(pub.type)}</div>` : ""}
+      <article class="pub-item" data-year="${pub.year}">
+        <div class="pub-year-col">
+          <span class="pub-year">${escapeHtml(String(pub.year || ""))}</span>
+          ${pub.type ? `<span class="pub-type pub-type-${typeClass(pub.type)}">${escapeHtml(pub.type)}</span>` : ""}
         </div>
-        <div class="pub-content">
+        <div class="pub-body">
           <h3 class="pub-title">${pub.featured ? `<span class="pub-star" title="主要論文">${ICON.star}</span>` : ""}${title}</h3>
           ${pub.authors ? `<p class="pub-authors">${authorMarkup(pub.authors)}</p>` : ""}
-          <div class="pub-venue">${ICON.book}<span>${escapeHtml(pub.venue || "")}</span></div>
-          <div class="pub-meta">
-            ${pub.date ? `<span>${ICON.calendar}${escapeHtml(pub.date)}</span>` : ""}
-            ${pub.location ? `<span>${ICON.pin}${escapeHtml(pub.location)}</span>` : ""}
-          </div>
-          <div class="pub-footer">
-            ${pub.doi ? `<span class="pub-doi">DOI: ${escapeHtml(pub.doi)}</span>` : ""}
-            ${links}
-          </div>
+          ${venueLine ? `<p class="pub-venue-line">${venueLine}</p>` : ""}
+          ${linkParts.length ? `<div class="pub-links">${linkParts.join("")}</div>` : ""}
         </div>
       </article>`;
   }
@@ -260,17 +262,10 @@
       // 種別に日本語が含まれていれば国内発表、そうでなければ国際発表とみなす
       const hasJa = (s) => /[\u3040-\u30ff\u4e00-\u9fff]/.test(s || "");
       const domestic = pubs.filter((p) => hasJa(p.type)).length;
-      const stats = [
-        { num: pubs.length, label: "Total" },
-        { num: pubs.length - domestic, label: "International" },
-        { num: domestic, label: "Domestic" },
-      ];
-      statsEl.innerHTML = stats
-        .map(
-          (s) =>
-            `<div class="stat"><span class="stat-num">${s.num}</span><span class="stat-label">${s.label}</span></div>`
-        )
-        .join("");
+      const intl = pubs.length - domestic;
+      const sep = `<span style="opacity:.45"> \u30fb </span>`;
+      statsEl.innerHTML =
+        `\u5168 <b>${pubs.length}</b> \u4ef6${sep}\u56fd\u969b <b>${intl}</b>${sep}\u56fd\u5185 <b>${domestic}</b>`;
     }
 
     // Year filter chips
@@ -315,7 +310,7 @@
       { threshold: 0.1 }
     );
     document
-      .querySelectorAll(".pub-card, .edu-card, .section-header")
+      .querySelectorAll(".pub-item, .edu-item, .section-header")
       .forEach((el) => fade.observe(el));
 
     // サイドバーのナビゲーションを現在のセクションに合わせてハイライト
