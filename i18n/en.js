@@ -37,7 +37,7 @@ window.SITE_I18N.en = {
     {
       school: "Nara Institute of Science and Technology (NAIST)",
       dept: "Graduate School of Science and Technology — Research Student",
-      date: "2025.04 – 2027.09",
+      date: "2025.04 – 2025.09",
       location: "Nara, Japan",
     },
   ],
