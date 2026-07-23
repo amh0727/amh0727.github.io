@@ -11,8 +11,11 @@ window.SITE_I18N.en = {
   ui: {
     secEducation: "Education",
     secPublications: "Publications",
+    secAwards: "Awards",
     navEducation: "Education",
     navPublications: "Publications",
+    navAwards: "Awards",
+    awardTag: "Award",
     filterAll: "All",
     // {total} {intl} {domestic} are replaced with counts
     summary: "{total} total　·　{intl} international　·　{domestic} domestic",

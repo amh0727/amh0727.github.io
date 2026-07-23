@@ -82,11 +82,11 @@ window.SITE_DATA = {
         "混練過程における生地状態変化のマルチモーダルセンシングに関する検討",
       authors: "An Minhyoung, 佐々木航, 松井智一, 安本慶一, 太田茂之",
       venue: {
-        ja: "第90回ユビキタスコンピューティングシステム研究会",
+        ja: "第90回ユビキタスコンピューティングシステム研究会(UBI)",
         en: "90th Ubiquitous Computing System Workshop (IPSJ)",
         ko: "제90회 유비쿼터스 컴퓨팅 시스템 연구회",
       },
-      type: { ja: "国内研究会", en: "Domestic Workshop", ko: "국내 연구회" },
+      type: { ja: "国内学会", en: "Domestic Conf.", ko: "국내 학회" },
       year: 2026,
       date: { ja: "2026年5月27日 ～ 5月28日", en: "May 27–28, 2026", ko: "2026년 5월 27일 ~ 28일" },
       location: { ja: "奈良、日本", en: "Nara, Japan", ko: "나라, 일본" },

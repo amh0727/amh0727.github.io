@@ -314,6 +314,43 @@
     list.innerHTML = pubs.map(pubCard).join("");
   }
 
+  /* ---- Awards ---- */
+  function renderAwards() {
+    const list = $("award-list");
+    if (!list) return;
+    const awards = (data.awards || []).slice();
+    // 受賞歴が無ければセクションごと隠す
+    const section = $("awards");
+    if (!awards.length) {
+      if (section) section.style.display = "none";
+      return;
+    }
+    if (section) section.style.display = "";
+
+    list.innerHTML = awards
+      .map((a) => {
+        const meta = [a.venue, a.date, a.location]
+          .map((v) => t(v))
+          .filter(Boolean)
+          .map(escapeHtml)
+          .join("  ·  ");
+        const work = t(a.work);
+        return `
+      <article class="award-item">
+        <div class="award-year-col">
+          <span class="award-year">${escapeHtml(String(a.year || ""))}</span>
+          <span class="award-tag">${escapeHtml(ui("awardTag"))}</span>
+        </div>
+        <div class="award-body">
+          <h3 class="award-title">${escapeHtml(t(a.title))}</h3>
+          ${meta ? `<p class="award-venue-line">${meta}</p>` : ""}
+          ${work ? `<p class="award-work">${escapeHtml(work)}</p>` : ""}
+        </div>
+      </article>`;
+      })
+      .join("");
+  }
+
   // フィルタのクリック処理（1 回だけ登録）
   function setupFilters() {
     const filtersEl = $("pub-filters");
@@ -348,7 +385,7 @@
       { threshold: 0.1 }
     );
     document
-      .querySelectorAll(".pub-item, .edu-item, .section-header")
+      .querySelectorAll(".pub-item, .edu-item, .award-item, .section-header")
       .forEach((el) => fadeObserver.observe(el));
   }
 
@@ -428,6 +465,7 @@
     renderProfile();
     renderEducation();
     renderPublications();
+    renderAwards();
     applyUiLabels();
     setupFade();
   }

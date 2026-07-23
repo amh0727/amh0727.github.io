@@ -11,8 +11,11 @@ window.SITE_I18N.ko = {
   ui: {
     secEducation: "학력",
     secPublications: "주요 논문·발표",
+    secAwards: "수상 경력",
     navEducation: "학력",
     navPublications: "논문·발표",
+    navAwards: "수상 경력",
+    awardTag: "수상",
     filterAll: "전체",
     // {total} {intl} {domestic} 가 건수로 치환됩니다
     summary: "총 {total}건　·　국제 {intl}　·　국내 {domestic}",

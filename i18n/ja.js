@@ -12,8 +12,11 @@ window.SITE_I18N.ja = {
   ui: {
     secEducation: "学歴",
     secPublications: "主な論文・発表",
+    secAwards: "受賞歴",
     navEducation: "学歴",
     navPublications: "論文・発表",
+    navAwards: "受賞歴",
+    awardTag: "受賞",
     filterAll: "すべて",
     // {total} {intl} {domestic} が件数に置き換わります
     summary: "全 {total} 件　・　国際 {intl}　・　国内 {domestic}",
