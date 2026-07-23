@@ -421,24 +421,6 @@
     document.documentElement.setAttribute("lang", lang);
   }
 
-  /* ---- Dark / Light theme toggle ---- */
-  function setupTheme() {
-    const btn = $("theme-toggle");
-    if (!btn) return;
-    btn.addEventListener("click", () => {
-      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-      const next = isDark ? "light" : "dark";
-      if (next === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-      } else {
-        document.documentElement.removeAttribute("data-theme");
-      }
-      try {
-        localStorage.setItem("theme", next);
-      } catch (e) {}
-    });
-  }
-
   /* ---- 言語切替 ---- */
   function setupLang() {
     const sw = $("lang-switch");
@@ -475,6 +457,5 @@
   renderAll();
   setupFilters();
   setupScrollspy();
-  setupTheme();
   setupLang();
 })();

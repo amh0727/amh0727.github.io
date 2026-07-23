@@ -128,4 +128,24 @@ window.SITE_DATA = {
   ],
 
   // ▲▲▲ 論文を追加する場所 ▲▲▲
+
+  // ▼▼▼ 受賞歴を追加する場所（新しい順に上から）▼▼▼
+  // フィールド: title(受賞名) / venue(学会名) / work(対象研究・任意) /
+  //             year / date / location  — いずれも { ja, en, ko } で言語別に書けます。
+  awards: [
+    {
+      title: { ja: "学生奨励賞", en: "Student Encouragement Award", ko: "학생장려상" },
+      venue: {
+        ja: "第90回ユビキタスコンピューティングシステム研究会(UBI)",
+        en: "90th Ubiquitous Computing System Workshop (IPSJ)",
+        ko: "제90회 유비쿼터스 컴퓨팅 시스템 연구회",
+      },
+      // 対象研究（任意）
+      work: "混練過程における生地状態変化のマルチモーダルセンシングに関する検討",
+      year: 2026,
+      date: { ja: "2026年5月", en: "May 2026", ko: "2026년 5월" },
+      location: { ja: "奈良、日本", en: "Nara, Japan", ko: "나라, 일본" },
+    },
+  ],
+  // ▲▲▲ 受賞歴を追加する場所 ▲▲▲
 };
