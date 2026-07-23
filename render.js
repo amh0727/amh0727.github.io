@@ -93,8 +93,6 @@
       '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>',
     link:
       '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>',
-    star:
-      '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>',
   };
 
   /* ---- プロフィールリンク用アイコン ---- */
@@ -264,7 +262,7 @@
           ${typeStr ? `<span class="pub-type pub-type-${typeClass(typeStr)}">${escapeHtml(typeStr)}</span>` : ""}
         </div>
         <div class="pub-body">
-          <h3 class="pub-title">${pub.featured ? `<span class="pub-star">${ICON.star}</span>` : ""}${title}</h3>
+          <h3 class="pub-title">${title}</h3>
           ${pub.authors ? `<p class="pub-authors">${authorMarkup(t(pub.authors))}</p>` : ""}
           ${venueLine ? `<p class="pub-venue-line">${venueLine}</p>` : ""}
           ${linkParts.length ? `<div class="pub-links">${linkParts.join("")}</div>` : ""}
@@ -370,8 +368,24 @@
   }
 
   /* ---- フェードイン（再描画ごとに貼り直す） ---- */
+  // アニメーションを使うかどうか（モーション設定を尊重）。
+  // JS が動いた時だけ .js-anim を付け、初期の非表示状態を有効化する。
+  // 何らかの理由で JS/監視が動かなくても内容は必ず表示される（CSS 側の既定は可視）。
+  const ALLOW_ANIM =
+    !window.matchMedia ||
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   let fadeObserver = null;
   function setupFade() {
+    const targets = document.querySelectorAll(
+      ".pub-item, .edu-item, .award-item, .section-header"
+    );
+    if (!ALLOW_ANIM || !("IntersectionObserver" in window)) {
+      // モーション削減時：即座に全て可視（.js-anim を付けないので CSS 上も可視）
+      targets.forEach((el) => el.classList.add("visible"));
+      return;
+    }
+    document.documentElement.classList.add("js-anim");
     if (fadeObserver) fadeObserver.disconnect();
     fadeObserver = new IntersectionObserver(
       (entries) => {
@@ -384,9 +398,7 @@
       },
       { threshold: 0.1 }
     );
-    document
-      .querySelectorAll(".pub-item, .edu-item, .award-item, .section-header")
-      .forEach((el) => fadeObserver.observe(el));
+    targets.forEach((el) => fadeObserver.observe(el));
   }
 
   /* ---- サイドバーのスクロール連動ハイライト（1 回だけ） ---- */
