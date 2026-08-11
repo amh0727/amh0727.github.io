@@ -161,9 +161,11 @@
         const done = () => {
           if (!labelSpan) return;
           labelSpan.textContent = ui("copied");
+          btn.setAttribute("aria-label", ui("copied"));
           btn.classList.add("copied");
           setTimeout(() => {
             labelSpan.textContent = original;
+            btn.setAttribute("aria-label", original);
             btn.classList.remove("copied");
           }, 1500);
         };
@@ -197,6 +199,7 @@
     const tp = trProfile();
     if ($("hero-greeting")) $("hero-greeting").textContent = tp.greeting || "";
     if ($("hero-name")) $("hero-name").textContent = p.name || "";
+    if ($("site-name")) $("site-name").textContent = p.name || "";
     if ($("hero-affiliation")) $("hero-affiliation").textContent = tp.affiliation || "";
     if ($("hero-program")) $("hero-program").textContent = tp.program || "";
     if ($("hero-description")) $("hero-description").innerHTML = tp.description || "";
@@ -216,13 +219,14 @@
         .map((l) => {
           const icon = LINK_ICON[l.icon] || LINK_ICON.link;
           const label = `${icon}<span>${escapeHtml(l.label)}</span>`;
+          const accessibleName = escapeHtml(l.label);
           // メールはコピー専用ボタン（アドレスを平文で埋め込まない）
           if (l.copyEmail) {
-            return `<button type="button" class="profile-link" data-copy="${escapeHtml(l.copyEmail)}">${label}</button>`;
+            return `<button type="button" class="profile-link" aria-label="${accessibleName}" data-copy="${escapeHtml(l.copyEmail)}">${label}</button>`;
           }
           const isMail = /^mailto:/i.test(l.url);
           const attrs = isMail ? "" : ' target="_blank" rel="noopener noreferrer"';
-          return `<a class="profile-link" href="${escapeHtml(l.url)}"${attrs}>${label}</a>`;
+          return `<a class="profile-link" aria-label="${accessibleName}" href="${escapeHtml(l.url)}"${attrs}>${label}</a>`;
         })
         .join("");
       wireEmailCopy(linksEl);
@@ -435,38 +439,11 @@
     });
   }
 
-  /* ---- フェードイン（再描画ごとに貼り直す） ---- */
-  // アニメーションを使うかどうか（モーション設定を尊重）。
-  // JS が動いた時だけ .js-anim を付け、初期の非表示状態を有効化する。
-  // 何らかの理由で JS/監視が動かなくても内容は必ず表示される（CSS 側の既定は可視）。
-  const ALLOW_ANIM =
-    !window.matchMedia ||
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  let fadeObserver = null;
+  /* ---- Content visibility ---- */
   function setupFade() {
-    const targets = document.querySelectorAll(
-      ".pub-item, .edu-item, .award-item, .section-header"
-    );
-    if (!ALLOW_ANIM || !("IntersectionObserver" in window)) {
-      // モーション削減時：即座に全て可視（.js-anim を付けないので CSS 上も可視）
-      targets.forEach((el) => el.classList.add("visible"));
-      return;
-    }
-    document.documentElement.classList.add("js-anim");
-    if (fadeObserver) fadeObserver.disconnect();
-    fadeObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            fadeObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    targets.forEach((el) => fadeObserver.observe(el));
+    document
+      .querySelectorAll(".pub-item, .edu-item, .award-item, .section-header")
+      .forEach((el) => el.classList.add("visible"));
   }
 
   /* ---- サイドバーのスクロール連動ハイライト（1 回だけ） ---- */

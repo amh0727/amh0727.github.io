@@ -4,105 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minhyoung An | Researcher Portfolio</title>
-    <meta name="description" content="Minhyoung An – NAIST修士課程。オンデバイス推論・プライバシー保護型HAR研究者のポートフォリオ。">
-    <meta name="theme-color" content="#f5f5f7">
+    <title>Minhyoung An | Researcher</title>
+    <meta name="description" content="Minhyoung An — NAIST researcher working on on-device contextual inference, human activity recognition, and privacy-aware sensing.">
+    <meta name="theme-color" content="#f7f8fa">
     <link rel="canonical" href="https://amh0727.github.io/">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <!-- Top-right controls: language switch -->
-    <div class="top-controls">
-        <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
-            <button type="button" data-lang="en">EN</button>
-            <button type="button" data-lang="ja">日本語</button>
-            <button type="button" data-lang="ko">한국어</button>
+    <!--
+      THESIS: A concise researcher index that makes research focus, verified profiles, publications, and BibTeX immediately accessible.
+      OWN-WORLD: Institutional cool-white field, near-black type, cobalt links, thin rules, dense bibliography, no cards or decorative imagery.
+      STORY: Identity and verified destinations → short research focus → ACM interests → publications → education and awards.
+      FIRST VIEWPORT: Slim utility header, centered name/affiliation/focus, compact interests, and the beginning of the publication index.
+      FORM: Experience direction, seed fa8f7abc, approved Composition C with concise-copy constraint.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <header class="site-header">
+        <a class="site-identity" href="#about" id="site-name">Minhyoung An</a>
+        <nav class="header-nav" aria-label="Primary navigation">
+            <a href="#publications" data-nav="navPublications">論文・発表</a>
+            <a href="#education" data-nav="navEducation">学歴</a>
+            <a href="#awards" data-nav="navAwards">受賞歴</a>
+        </nav>
+        <div class="header-tools">
+            <div class="profile-links" id="profile-links" aria-label="External profiles"></div>
+            <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
+                <button type="button" data-lang="en">EN</button>
+                <button type="button" data-lang="ja">日本語</button>
+                <button type="button" data-lang="ko">한국어</button>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <div class="layout">
-        <!-- ===== Sticky Sidebar : 自己紹介 (always visible) ===== -->
-        <aside class="sidebar" id="about">
-            <div class="sidebar-inner">
-                <div class="profile-head">
-                    <div class="hero-avatar">
-                        <span id="hero-initials">MA</span>
-                    </div>
-                    <div>
-                        <h1 class="hero-name" id="hero-name"></h1>
-                        <p class="hero-greeting" id="hero-greeting"></p>
-                    </div>
-                </div>
-
-                <p class="hero-subtitle">
-                    <span class="highlight" id="hero-affiliation"></span> <span id="hero-program"></span>
-                </p>
-                <p class="hero-description" id="hero-description"></p>
+    <div class="page-shell">
+        <section class="intro" id="about" aria-labelledby="hero-name">
+            <p class="hero-greeting" id="hero-greeting"></p>
+            <h1 class="hero-name" id="hero-name"></h1>
+            <p class="hero-subtitle">
+                <span id="hero-affiliation"></span><span class="subtitle-separator" aria-hidden="true"> · </span><span id="hero-program"></span>
+            </p>
+            <p class="hero-description" id="hero-description"></p>
+            <div class="research-row">
                 <p class="interests-label" data-i18n="researchInterests">Research interests</p>
                 <div class="hero-interests" id="hero-interests"></div>
-
-                <div class="profile-links" id="profile-links"></div>
-
-                <nav class="side-nav">
-                    <a href="#publications"><span class="side-nav-num">01</span> <span data-nav="navPublications">論文・発表</span></a>
-                    <a href="#education"><span class="side-nav-num">02</span> <span data-nav="navEducation">学歴</span></a>
-                    <a href="#awards"><span class="side-nav-num">03</span> <span data-nav="navAwards">受賞歴</span></a>
-                </nav>
             </div>
-        </aside>
+        </section>
 
-        <!-- ===== Scrollable Main Content ===== -->
-        <main class="content">
-            <!-- Publications Section -->
-            <section class="section" id="publications">
-                <div class="section-header">
-                    <span class="section-label">01</span>
-                    <h2 data-i18n="secPublications">主な論文・発表</h2>
-                </div>
+        <div class="content-grid">
+            <main class="content">
+                <section class="section" id="publications">
+                    <div class="section-header">
+                        <h2 data-i18n="secPublications">主な論文・発表</h2>
+                        <div class="pub-stats" id="pub-stats"></div>
+                    </div>
+                    <div class="pub-filters" id="pub-filters" aria-label="Publication year filter"></div>
+                    <div class="pub-list" id="pub-list"></div>
+                </section>
 
-                <!-- Stats -->
-                <div class="pub-stats" id="pub-stats"></div>
+                <section class="section compact-section" id="education">
+                    <div class="section-header">
+                        <h2 data-i18n="secEducation">学歴</h2>
+                    </div>
+                    <div class="edu-list" id="edu-list"></div>
+                </section>
 
-                <!-- Year filter -->
-                <div class="pub-filters" id="pub-filters"></div>
+                <section class="section compact-section" id="awards">
+                    <div class="section-header">
+                        <h2 data-i18n="secAwards">受賞歴</h2>
+                    </div>
+                    <div class="award-list" id="award-list"></div>
+                </section>
+            </main>
 
-                <!-- Publication list (rendered from data.js) -->
-                <div class="pub-list" id="pub-list"></div>
-            </section>
+            <aside class="contents-rail" aria-label="On this page">
+                <nav class="side-nav">
+                    <a href="#publications"><span data-nav="navPublications">論文・発表</span></a>
+                    <a href="#education"><span data-nav="navEducation">学歴</span></a>
+                    <a href="#awards"><span data-nav="navAwards">受賞歴</span></a>
+                </nav>
+            </aside>
+        </div>
 
-            <!-- Education Section -->
-            <section class="section" id="education">
-                <div class="section-header">
-                    <span class="section-label">02</span>
-                    <h2 data-i18n="secEducation">学歴</h2>
-                </div>
-                <div class="edu-list" id="edu-list"></div>
-            </section>
-
-            <!-- Awards Section -->
-            <section class="section" id="awards">
-                <div class="section-header">
-                    <span class="section-label">03</span>
-                    <h2 data-i18n="secAwards">受賞歴</h2>
-                </div>
-                <div class="award-list" id="award-list"></div>
-            </section>
-
-            <!-- Footer -->
-            <footer class="footer">
-                <p>&copy; <span id="footer-year"></span> <span id="footer-name"></span>. All rights reserved.</p>
-            </footer>
-        </main>
+        <footer class="footer">
+            <p>&copy; <span id="footer-year"></span> <span id="footer-name"></span></p>
+        </footer>
     </div>
 
-    <!-- Language files (i18n) -->
     <script src="i18n/ja.js"></script>
     <script src="i18n/en.js"></script>
     <script src="i18n/ko.js"></script>
-    <!-- Data (DB) + render logic -->
     <script src="data.js"></script>
     <script src="render.js"></script>
 </body>

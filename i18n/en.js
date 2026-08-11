@@ -30,7 +30,7 @@ window.SITE_I18N.en = {
     affiliation: "Nara Institute of Science and Technology",
     program: "Master's Program",
     description:
-      "I research on-device small language models (SLMs) that infer a user's activity and context without ever sending data off the device.",
+      "I study privacy- and energy-aware activity and context recognition using sensor data and on-device small language models.",
   },
 
   education: [

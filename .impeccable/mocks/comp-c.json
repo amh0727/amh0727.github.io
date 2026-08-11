@@ -1,0 +1,5 @@
+{
+  "approved": true,
+  "viewport": { "width": 1440, "height": 1000 },
+  "prompt": "Conventional academic researcher homepage. Composition C: slim utility header, centered question-led flow, horizontal research-interest and current-question rows, dense bibliography with a small contents rail. Cool white, near-black, restrained cobalt, system neo-grotesk, thin rules, no cards, gradients, editorial collage, portrait, or invented proof. Real implementation must use repository content only."
+}

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-11T07:50:48Z",
+  "title": "Design System: Minhyoung An Research Index",
+  "extensions": {
+    "colorMeta": {
+      "cool-paper": { "role": "neutral", "displayName": "Cool Paper", "canonical": "#f7f8fa", "tonalRamp": ["oklch(15% 0.006 250)", "oklch(27% 0.006 250)", "oklch(39% 0.006 250)", "oklch(51% 0.006 250)", "oklch(63% 0.006 250)", "oklch(75% 0.006 250)", "oklch(87% 0.006 250)", "oklch(95% 0.006 250)"] },
+      "white-surface": { "role": "neutral", "displayName": "White Surface", "canonical": "#ffffff", "tonalRamp": ["oklch(15% 0 0)", "oklch(27% 0 0)", "oklch(39% 0 0)", "oklch(51% 0 0)", "oklch(63% 0 0)", "oklch(75% 0 0)", "oklch(87% 0 0)", "oklch(95% 0 0)"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#17191d", "tonalRamp": ["oklch(15% 0.008 255)", "oklch(27% 0.008 255)", "oklch(39% 0.008 255)", "oklch(51% 0.008 255)", "oklch(63% 0.008 255)", "oklch(75% 0.008 255)", "oklch(87% 0.008 255)", "oklch(95% 0.008 255)"] },
+      "body-ink": { "role": "neutral", "displayName": "Body Ink", "canonical": "#343941", "tonalRamp": ["oklch(15% 0.014 250)", "oklch(27% 0.014 250)", "oklch(39% 0.014 250)", "oklch(51% 0.014 250)", "oklch(63% 0.014 250)", "oklch(75% 0.014 250)", "oklch(87% 0.014 250)", "oklch(95% 0.014 250)"] },
+      "muted-ink": { "role": "neutral", "displayName": "Muted Ink", "canonical": "#565d68", "tonalRamp": ["oklch(15% 0.018 250)", "oklch(27% 0.018 250)", "oklch(39% 0.018 250)", "oklch(51% 0.018 250)", "oklch(63% 0.018 250)", "oklch(75% 0.018 250)", "oklch(87% 0.018 250)", "oklch(95% 0.018 250)"] },
+      "soft-ink": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#737b87", "tonalRamp": ["oklch(15% 0.018 250)", "oklch(27% 0.018 250)", "oklch(39% 0.018 250)", "oklch(51% 0.018 250)", "oklch(63% 0.018 250)", "oklch(75% 0.018 250)", "oklch(87% 0.018 250)", "oklch(95% 0.018 250)"] },
+      "research-cobalt": { "role": "primary", "displayName": "Research Cobalt", "canonical": "#075ccf", "tonalRamp": ["oklch(15% 0.17 257)", "oklch(27% 0.17 257)", "oklch(39% 0.17 257)", "oklch(51% 0.17 257)", "oklch(63% 0.17 257)", "oklch(75% 0.17 257)", "oklch(87% 0.17 257)", "oklch(95% 0.17 257)"] },
+      "research-cobalt-hover": { "role": "primary", "displayName": "Deep Research Cobalt", "canonical": "#03479f", "tonalRamp": ["oklch(15% 0.15 257)", "oklch(27% 0.15 257)", "oklch(39% 0.15 257)", "oklch(51% 0.15 257)", "oklch(63% 0.15 257)", "oklch(75% 0.15 257)", "oklch(87% 0.15 257)", "oklch(95% 0.15 257)"] },
+      "research-cobalt-soft": { "role": "primary", "displayName": "Pale Research Cobalt", "canonical": "#eaf2ff", "tonalRamp": ["oklch(15% 0.025 257)", "oklch(27% 0.025 257)", "oklch(39% 0.025 257)", "oklch(51% 0.025 257)", "oklch(63% 0.025 257)", "oklch(75% 0.025 257)", "oklch(87% 0.025 257)", "oklch(95% 0.025 257)"] },
+      "rule": { "role": "neutral", "displayName": "Rule", "canonical": "#dfe3e8", "tonalRamp": ["oklch(15% 0.008 250)", "oklch(27% 0.008 250)", "oklch(39% 0.008 250)", "oklch(51% 0.008 250)", "oklch(63% 0.008 250)", "oklch(75% 0.008 250)", "oklch(87% 0.008 250)", "oklch(95% 0.008 250)"] },
+      "rule-strong": { "role": "neutral", "displayName": "Strong Rule", "canonical": "#c8ced6", "tonalRamp": ["oklch(15% 0.012 250)", "oklch(27% 0.012 250)", "oklch(39% 0.012 250)", "oklch(51% 0.012 250)", "oklch(63% 0.012 250)", "oklch(75% 0.012 250)", "oklch(87% 0.012 250)", "oklch(95% 0.012 250)"] },
+      "focus-cobalt": { "role": "primary", "displayName": "Focus Cobalt", "canonical": "rgba(7, 92, 207, .26)", "tonalRamp": ["oklch(15% 0.04 257 / .26)", "oklch(27% 0.04 257 / .26)", "oklch(39% 0.04 257 / .26)", "oklch(51% 0.04 257 / .26)", "oklch(63% 0.04 257 / .26)", "oklch(75% 0.04 257 / .26)", "oklch(87% 0.04 257 / .26)", "oklch(95% 0.04 257 / .26)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Researcher Name", "purpose": "The compact first-view identity heading." },
+      "headline": { "displayName": "Section Headline", "purpose": "Primary section headings above strong rules." },
+      "title": { "displayName": "Scholarly Title", "purpose": "Publication, education, and award titles." },
+      "body": { "displayName": "Reading Text", "purpose": "Research description and explanatory prose." },
+      "label": { "displayName": "Index Label", "purpose": "Navigation, filters, metadata, years, and actions." },
+      "mono": { "displayName": "Citation Mono", "purpose": "BibTeX records only." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-index", "value": "cubic-bezier(.16, 1, .3, 1)", "purpose": "The available authored easing token; interaction color transitions currently use 160ms ease." },
+      { "name": "reduced-motion", "value": ".01ms", "purpose": "Collapses animation and transition duration when reduced motion is requested." }
+    ],
+    "breakpoints": [
+      { "name": "compact-desktop", "value": "1050px" },
+      { "name": "mobile", "value": "760px" },
+      { "name": "narrow-mobile", "value": "480px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Section Navigation",
+      "kind": "nav",
+      "refersTo": "navigation-link",
+      "description": "Compact muted section links with cobalt hover and active state.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary navigation\"><a class=\"ds-nav-link ds-active\" href=\"#publications\">Publications</a><a class=\"ds-nav-link\" href=\"#education\">Education</a><a class=\"ds-nav-link\" href=\"#awards\">Awards</a></nav>",
+      "css": ".ds-nav { display:flex; align-items:center; gap:26px; font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif; } .ds-nav-link { color:var(--muted,#565d68); font-size:.78rem; font-weight:560; text-decoration:none; transition:color 160ms ease; } .ds-nav-link:hover,.ds-nav-link.ds-active { color:var(--accent,#075ccf); } .ds-nav-link:focus-visible { outline:3px solid rgba(7,92,207,.26); outline-offset:3px; }"
+    },
+    {
+      "name": "Language Switch",
+      "kind": "button",
+      "description": "Three compact language options with an underlined cobalt current state.",
+      "html": "<div class=\"ds-lang-switch\" role=\"group\" aria-label=\"Language\"><button type=\"button\">EN</button><button type=\"button\" class=\"ds-active\">日本語</button><button type=\"button\">한국어</button></div>",
+      "css": ".ds-lang-switch { display:flex; align-items:center; padding-left:14px; border-left:1px solid var(--rule,#dfe3e8); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif; } .ds-lang-switch button { min-height:30px; padding:3px 6px; border:0; background:transparent; color:var(--soft,#737b87); font-size:.68rem; font-weight:560; cursor:pointer; } .ds-lang-switch button:hover { color:var(--text,#17191d); } .ds-lang-switch button.ds-active { color:var(--accent,#075ccf); text-decoration:underline; text-underline-offset:4px; } .ds-lang-switch button:focus-visible { outline:3px solid rgba(7,92,207,.26); outline-offset:3px; }"
+    },
+    {
+      "name": "Publication Year Filters",
+      "kind": "chip",
+      "refersTo": "publication-filter",
+      "description": "Borderless year filters whose active state is a cobalt baseline.",
+      "html": "<div class=\"ds-filters\" aria-label=\"Publication year filter\"><button class=\"ds-filter ds-active\">All</button><button class=\"ds-filter\">2026</button><button class=\"ds-filter\">2025</button></div>",
+      "css": ".ds-filters { min-height:54px; display:flex; align-items:center; gap:16px; border-bottom:1px solid var(--rule,#dfe3e8); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif; } .ds-filter { min-height:32px; padding:0; border:0; border-bottom:1px solid transparent; background:transparent; color:var(--soft,#737b87); font-size:.74rem; font-weight:590; cursor:pointer; } .ds-filter:hover { color:var(--text,#17191d); } .ds-filter.ds-active { color:var(--accent,#075ccf); border-bottom-color:var(--accent,#075ccf); } .ds-filter:focus-visible { outline:3px solid rgba(7,92,207,.26); outline-offset:3px; }"
+    },
+    {
+      "name": "External Profile Links",
+      "kind": "nav",
+      "description": "Verified icon-and-label destinations plus a visually matching email-copy action.",
+      "html": "<div class=\"ds-profiles\" aria-label=\"External profiles\"><a class=\"ds-profile\" href=\"https://orcid.org/0009-0007-5153-4554\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"currentColor\"/><path d=\"M8 7h1.4v10H8zm3 0h3.1c3.5 0 5.1 2.3 5.1 5s-1.8 5-5.1 5H11zm1.4 1.3v7.4h1.5c2.5 0 3.8-1.5 3.8-3.7s-1.3-3.7-3.8-3.7z\" fill=\"white\"/></svg><span>ORCID</span></a><a class=\"ds-profile\" href=\"https://github.com/amh0727/\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.7 18 5 18 5c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.3v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z\"/></svg><span>GitHub</span></a><button class=\"ds-profile\" type=\"button\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"m22 7-10 6L2 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/></svg><span>Email</span></button></div>",
+      "css": ".ds-profiles { display:flex; align-items:center; gap:12px; font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif; } .ds-profile { min-height:30px; display:inline-flex; align-items:center; gap:5px; padding:2px 0; border:0; background:transparent; color:var(--muted,#565d68); font-size:.74rem; font-weight:570; text-decoration:none; cursor:pointer; transition:color 160ms ease; } .ds-profile svg { width:15px; height:15px; } .ds-profile:hover,.ds-profile.ds-copied { color:var(--accent,#075ccf); } .ds-profile:focus-visible { outline:3px solid rgba(7,92,207,.26); outline-offset:3px; }"
+    },
+    {
+      "name": "Publication and BibTeX Row",
+      "kind": "custom",
+      "description": "A ruled bibliography row with scholarly metadata and an expandable citation surface.",
+      "html": "<article class=\"ds-pub\"><div class=\"ds-pub-meta\"><span class=\"ds-year\">2026</span><span class=\"ds-type\">Short Paper</span></div><div><h3 class=\"ds-title\"><a href=\"https://doi.org/10.1145/3737611.3776950\">Toward Semantically Aligned and Energy-Efficient On-Device Contextual Inference in Real-World Environments</a></h3><p class=\"ds-authors\"><strong>Minhyoung An</strong>, Wataru Sasaki, Hirohiko Suwa, Keiichi Yasumoto</p><p class=\"ds-venue\">ICDCN 2026 (Doctoral Symposium, Short Paper)</p><details class=\"ds-citation\"><summary>BibTeX</summary><div class=\"ds-panel\"><button class=\"ds-copy\" type=\"button\">Copy BibTeX</button><pre><code>@inproceedings{an2026semantically,\n  year = {2026},\n  doi = {10.1145/3737611.3776950}\n}</code></pre></div></details></div></article>",
+      "css": ".ds-pub { display:grid; grid-template-columns:88px minmax(0,1fr); gap:22px; padding:25px 0 27px; border-bottom:1px solid var(--rule,#dfe3e8); color:var(--text,#17191d); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif; } .ds-pub-meta { display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding-top:2px; } .ds-year { font-size:.78rem; font-weight:660; font-variant-numeric:tabular-nums; } .ds-type,.ds-venue { color:var(--soft,#737b87); font-size:.67rem; line-height:1.55; } .ds-title { margin:0 0 7px; font-size:1rem; font-weight:650; line-height:1.46; letter-spacing:-.012em; } .ds-title a { color:inherit; text-decoration:none; } .ds-title a::after { content:\"↗\"; padding-left:6px; color:var(--accent,#075ccf); font-size:.76em; } .ds-title a:hover { color:var(--accent,#075ccf); } .ds-authors { margin:0 0 4px; color:var(--muted,#565d68); font-size:.81rem; line-height:1.55; } .ds-authors strong { color:var(--text,#17191d); font-weight:650; } .ds-venue { margin:0; font-size:.75rem; } .ds-citation { margin-top:10px; } .ds-citation summary { width:fit-content; color:var(--accent,#075ccf); font-size:.73rem; font-weight:620; cursor:pointer; list-style:none; } .ds-citation summary::after { content:\"+\"; margin-left:7px; } .ds-citation[open] summary::after { content:\"−\"; } .ds-panel { position:relative; margin-top:11px; padding:16px 76px 16px 16px; border:1px solid var(--rule,#dfe3e8); background:var(--surface,#fff); } .ds-panel pre { margin:0; overflow-x:auto; color:var(--muted,#565d68); font: .7rem/1.6 SFMono-Regular,Consolas,\"Liberation Mono\",monospace; white-space:pre-wrap; overflow-wrap:anywhere; } .ds-copy { position:absolute; top:11px; right:11px; min-height:30px; padding:3px 9px; border:1px solid var(--rule-strong,#c8ced6); border-radius:4px; background:var(--bg,#f7f8fa); color:var(--muted,#565d68); font-size:.69rem; font-weight:620; cursor:pointer; } .ds-copy:hover,.ds-copy:focus-visible { color:var(--accent,#075ccf); border-color:var(--accent,#075ccf); } .ds-copy:focus-visible,.ds-citation summary:focus-visible,.ds-title a:focus-visible { outline:3px solid rgba(7,92,207,.26); outline-offset:3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Research Index",
+    "overview": "The system presents an academic record as a precise working index: concise, institutional, and personal without becoming brand-heroic. Dense evidence, short explanatory copy, and dependable controls take precedence over promotion or decoration.\n\nIts character comes from a cool paper field, near-black ink, restrained Research Cobalt, and a disciplined hierarchy of rules. Every treatment should help a visitor scan, verify, open, filter, or cite the work.",
+    "keyCharacteristics": [
+      "Cool, quiet, and information-forward.",
+      "Flat structure defined by rules and tonal surfaces.",
+      "Compact multilingual controls and bibliography-first density.",
+      "Precise, restrained component behavior."
+    ],
+    "rules": [
+      { "name": "The Cobalt Means Action Rule", "body": "Use the accent for links, active filters, active navigation, copied feedback, selection, and visible focus; do not spread it across passive surfaces.", "section": "colors" },
+      { "name": "The Evidence Before Scale Rule", "body": "Use weight, spacing, and rules before increasing type size; there is no giant-name hero.", "section": "typography" },
+      { "name": "The Flat Evidence Rule", "body": "Surfaces stay on one plane; use rules and restrained tonal contrast to organize information.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep publications and citation actions visually dominant through density, rules, and clear metadata.",
+      "Do reserve Research Cobalt for meaningful interaction and current state.",
+      "Do preserve keyboard focus, reduced-motion behavior, high-contrast overrides, and responsive access to language and citation controls.",
+      "Do use verified profile destinations and repository-backed publication content only."
+    ],
+    "donts": [
+      "Don't introduce flashy AI-startup styling, gradients, glass, or decorative imagery.",
+      "Don't turn bibliography rows into cards or add shadows.",
+      "Don't use a magazine or editorial collage composition.",
+      "Don't create a giant-name hero or brand-heroic voice."
+    ]
+  }
+}
