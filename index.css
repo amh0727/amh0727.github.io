@@ -196,9 +196,9 @@ p { text-wrap: pretty; }
 @media (max-width: 480px) {
     .site-identity { font-size: .82rem; }
     .header-tools { gap: 8px; }
-    .lang-switch button { font-size: .62rem; }
-    .hero-subtitle { font-size: .8rem; }
-    .subtitle-separator { display: block; height: 4px; font-size: 0; }
+    .lang-switch button::before { font-size: .62rem; }
+    .section-header { display: block; }
+    .pub-stats { max-width: none; margin-top: 7px; text-align: left; white-space: nowrap; }
     .pub-item, .award-item { display: block; }
     .pub-year-col, .award-year-col { flex-direction: row; align-items: baseline; gap: 8px; margin-bottom: 9px; }
     .citation-panel { padding: 48px 13px 13px; }
