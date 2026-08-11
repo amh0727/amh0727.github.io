@@ -20,7 +20,7 @@
     "typographyMeta": {
       "display": { "displayName": "Researcher Name", "purpose": "The compact first-view identity heading." },
       "headline": { "displayName": "Section Headline", "purpose": "Primary section headings above strong rules." },
-      "title": { "displayName": "Scholarly Title", "purpose": "Publication, education, and award titles." },
+      "title": { "displayName": "Scholarly Title", "purpose": "Publication and award titles." },
       "body": { "displayName": "Reading Text", "purpose": "Research description and explanatory prose." },
       "label": { "displayName": "Index Label", "purpose": "Navigation, filters, metadata, years, and actions." },
       "mono": { "displayName": "Citation Mono", "purpose": "BibTeX records only." }
@@ -42,7 +42,7 @@
       "kind": "nav",
       "refersTo": "navigation-link",
       "description": "Compact muted section links with cobalt hover and active state.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Primary navigation\"><a class=\"ds-nav-link ds-active\" href=\"#publications\">Publications</a><a class=\"ds-nav-link\" href=\"#education\">Education</a><a class=\"ds-nav-link\" href=\"#awards\">Awards</a></nav>",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary navigation\"><a class=\"ds-nav-link ds-active\" href=\"#publications\">Publications</a><a class=\"ds-nav-link\" href=\"#awards\">Awards</a></nav>",
       "css": ".ds-nav { display:flex; align-items:center; gap:26px; font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif; } .ds-nav-link { color:var(--muted,#565d68); font-size:.78rem; font-weight:560; text-decoration:none; transition:color 160ms ease; } .ds-nav-link:hover,.ds-nav-link.ds-active { color:var(--accent,#075ccf); } .ds-nav-link:focus-visible { outline:3px solid rgba(7,92,207,.26); outline-offset:3px; }"
     },
     {
@@ -77,7 +77,7 @@
   ],
   "narrative": {
     "northStar": "The Research Index",
-    "overview": "The system presents an academic record as a precise working index: concise, institutional, and personal without becoming brand-heroic. Dense evidence, short explanatory copy, and dependable controls take precedence over promotion or decoration.\n\nIts character comes from a cool paper field, near-black ink, restrained Research Cobalt, and a disciplined hierarchy of rules. Every treatment should help a visitor scan, verify, open, filter, or cite the work.",
+    "overview": "The system presents an academic record as a precise working index: concise, institutional, and personal without becoming brand-heroic. Education sits beside the name as compact context, while publications and awards form the primary lists.\n\nIts character comes from a cool paper field, near-black ink, restrained Research Cobalt, and a disciplined hierarchy of rules. Every treatment should help a visitor scan, verify, open, filter, or cite the work.",
     "keyCharacteristics": [
       "Cool, quiet, and information-forward.",
       "Flat structure defined by rules and tonal surfaces.",

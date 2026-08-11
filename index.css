@@ -84,8 +84,9 @@ p { text-wrap: pretty; }
 .page-shell { width: min(calc(100% - 48px), var(--page)); margin: 0 auto; }
 .intro { max-width: 940px; padding: 58px 0 38px; margin: 0 auto; text-align: left; }
 .hero-greeting { margin-bottom: 8px; color: var(--muted); font-size: .74rem; font-weight: 620; }
+.identity-line { display: flex; align-items: baseline; gap: 22px; }
 .hero-name { font-size: clamp(1.9rem, 3vw, 2.65rem); font-weight: 700; line-height: 1.08; letter-spacing: -.035em; }
-.hero-subtitle { margin-top: 12px; color: var(--muted); font-size: .86rem; }
+.hero-subtitle { color: var(--muted); font-size: .82rem; }
 .subtitle-separator { color: var(--rule-strong); }
 .hero-description { max-width: 68ch; margin: 18px 0 0; color: #343941; font-size: 1rem; line-height: 1.65; }
 
@@ -158,10 +159,6 @@ p { text-wrap: pretty; }
 .citation-copy:hover, .citation-copy.copied { color: var(--accent); border-color: var(--accent); }
 
 .compact-section .section-header { margin-bottom: 0; }
-.edu-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 22px; padding: 21px 0; border-bottom: 1px solid var(--rule); }
-.edu-school { font-size: .94rem; font-weight: 640; letter-spacing: -.01em; }
-.edu-dept { margin-top: 3px; color: var(--muted); font-size: .8rem; }
-.edu-line { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: var(--soft); font-size: .73rem; font-variant-numeric: tabular-nums; }
 .award-work { margin-top: 5px; }
 
 .footer { padding: 30px 0 42px; border-top: 1px solid var(--rule); color: var(--soft); font-size: .72rem; }
@@ -186,7 +183,9 @@ p { text-wrap: pretty; }
     .lang-switch button::before { content: attr(data-lang); font-size: .64rem; text-transform: uppercase; }
     .page-shell { width: min(calc(100% - 36px), var(--page)); }
     .intro { padding: 42px 0 28px; }
+    .identity-line { display: block; }
     .hero-name { font-size: 2rem; }
+    .hero-subtitle { margin-top: 9px; }
     .hero-description { margin-left: 0; font-size: 1rem; }
     .research-row { margin-top: 26px; grid-template-columns: 1fr; gap: 10px; }
     .hero-interests { gap: 6px 15px; }
@@ -196,8 +195,6 @@ p { text-wrap: pretty; }
     .section-header { align-items: flex-end; }
     .pub-stats { max-width: 46%; text-align: right; }
     .pub-item, .award-item { grid-template-columns: 62px minmax(0, 1fr); gap: 14px; }
-    .edu-item { grid-template-columns: 1fr; }
-    .edu-line { grid-column: 1; grid-row: auto; margin-top: 7px; }
 }
 
 @media (max-width: 480px) {

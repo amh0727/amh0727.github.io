@@ -98,7 +98,7 @@ components:
 
 **Creative North Star: "The Research Index"**
 
-The system presents an academic record as a precise working index: concise, institutional, and personal without becoming brand-heroic. Dense evidence, short explanatory copy, and dependable controls take precedence over promotion or decoration.
+The system presents an academic record as a precise working index: concise, institutional, and personal without becoming brand-heroic. Education sits beside the name as compact context, while publications and awards form the primary lists.
 
 Its character comes from a cool paper field, near-black ink, restrained Research Cobalt, and a disciplined hierarchy of rules. Every treatment should help a visitor scan, verify, open, filter, or cite the work.
 
@@ -153,7 +153,7 @@ Cool Paper and White Surface create a quiet academic field; Ink carries evidence
 
 ## Layout
 
-The desktop page is capped at 1180px with 24px minimum gutters. The intro and primary content measure are 940px; the body then becomes a fluid main column plus a 132px sticky contents rail with a 72px gap. Publication and award rows reserve an 88px metadata column, while the research-interest row reserves 130px for its label.
+The desktop page is capped at 1180px with 24px minimum gutters. The name and education context share one identity line. The intro and primary content measure are 940px; the body then becomes a fluid main column plus a 132px sticky contents rail with a 72px gap. Publication and award rows reserve an 88px metadata column, while the research-interest row reserves 130px for its label.
 
 At 1050px, header navigation is removed, profile targets grow to 44px, and the rail narrows. At 760px, the rail and site identity disappear, gutters become 18px, the content becomes a single column, and bibliography metadata narrows to 62px. Below 480px, publication and award rows stack and the citation copy action moves above the code.
 
@@ -173,7 +173,7 @@ The form language is square and linear. Navigation, language controls, filters, 
 
 ### Navigation
 
-Header and side-rail links are compact muted labels that become Research Cobalt on hover or when active. The desktop header is sticky with a bottom rule; primary section links disappear below 1050px, and the side rail disappears below 760px. All links receive the shared visible focus outline.
+Header and side-rail links expose only Publications and Awards. They are compact muted labels that become Research Cobalt on hover or when active. The desktop header is sticky with a bottom rule; primary section links disappear below 1050px, and the side rail disappears below 760px. All links receive the shared visible focus outline.
 
 ### Language Switch
 

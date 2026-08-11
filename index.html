@@ -16,8 +16,8 @@
     <!--
       THESIS: A concise researcher index that makes research focus, verified profiles, publications, and BibTeX immediately accessible.
       OWN-WORLD: Institutional cool-white field, near-black type, cobalt links, thin rules, dense bibliography, no cards or decorative imagery.
-      STORY: Identity and verified destinations → short research focus → ACM interests → publications → education and awards.
-      FIRST VIEWPORT: Slim utility header, centered name/affiliation/focus, compact interests, and the beginning of the publication index.
+      STORY: Identity and education → verified destinations → short research focus → ACM interests → publications and awards.
+      FIRST VIEWPORT: Slim utility header, compact name/education/focus, research interests, and the beginning of the publication index.
       FORM: Experience direction, seed fa8f7abc, approved Composition C with concise-copy constraint.
       FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
     -->
@@ -25,7 +25,6 @@
         <a class="site-identity" href="#about" id="site-name">Minhyoung An</a>
         <nav class="header-nav" aria-label="Primary navigation">
             <a href="#publications" data-nav="navPublications">論文・発表</a>
-            <a href="#education" data-nav="navEducation">学歴</a>
             <a href="#awards" data-nav="navAwards">受賞歴</a>
         </nav>
         <div class="header-tools">
@@ -41,10 +40,12 @@
     <div class="page-shell">
         <section class="intro" id="about" aria-labelledby="hero-name">
             <p class="hero-greeting" id="hero-greeting"></p>
-            <h1 class="hero-name" id="hero-name"></h1>
-            <p class="hero-subtitle">
-                <span id="hero-affiliation"></span><span class="subtitle-separator" aria-hidden="true"> · </span><span id="hero-program"></span>
-            </p>
+            <div class="identity-line">
+                <h1 class="hero-name" id="hero-name"></h1>
+                <p class="hero-subtitle">
+                    <span id="hero-affiliation"></span><span class="subtitle-separator" aria-hidden="true"> · </span><span id="hero-program"></span>
+                </p>
+            </div>
             <p class="hero-description" id="hero-description"></p>
             <div class="research-row">
                 <p class="interests-label" data-i18n="researchInterests">Research interests</p>
@@ -63,13 +64,6 @@
                     <div class="pub-list" id="pub-list"></div>
                 </section>
 
-                <section class="section compact-section" id="education">
-                    <div class="section-header">
-                        <h2 data-i18n="secEducation">学歴</h2>
-                    </div>
-                    <div class="edu-list" id="edu-list"></div>
-                </section>
-
                 <section class="section compact-section" id="awards">
                     <div class="section-header">
                         <h2 data-i18n="secAwards">受賞歴</h2>
@@ -81,7 +75,6 @@
             <aside class="contents-rail" aria-label="On this page">
                 <nav class="side-nav">
                     <a href="#publications"><span data-nav="navPublications">論文・発表</span></a>
-                    <a href="#education"><span data-nav="navEducation">学歴</span></a>
                     <a href="#awards"><span data-nav="navAwards">受賞歴</span></a>
                 </nav>
             </aside>

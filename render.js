@@ -39,10 +39,6 @@
   function trProfile() {
     return Object.assign({}, L(DEFAULT_LANG).profile || {}, L(lang).profile || {});
   }
-  function trList(key) {
-    return L(lang)[key] || L(DEFAULT_LANG)[key] || [];
-  }
-
   /* ---- 小さなヘルパ ---- */
   // **text** を <strong> に変換（著者名の強調用）。HTML エスケープ込み。
   function escapeHtml(s) {
@@ -237,27 +233,6 @@
       const years = (data.publications || []).map((x) => x.year).filter(Boolean);
       $("footer-year").textContent = years.length ? Math.max(...years) : "";
     }
-  }
-
-  /* ---- Education ---- */
-  function renderEducation() {
-    const list = $("edu-list");
-    if (!list) return;
-    list.innerHTML = trList("education")
-      .map((e) => {
-        const meta = [e.date, e.location]
-          .map((v) => t(v))
-          .filter(Boolean)
-          .map(escapeHtml)
-          .join("  ·  ");
-        return `
-      <div class="edu-item">
-        <h3 class="edu-school">${escapeHtml(t(e.school))}</h3>
-        ${e.dept ? `<p class="edu-dept">${escapeHtml(t(e.dept))}</p>` : ""}
-        ${meta ? `<p class="edu-line">${meta}</p>` : ""}
-      </div>`;
-      })
-      .join("");
   }
 
   /* ---- Publications ---- */
@@ -502,7 +477,6 @@
   /* ---- 全体描画（言語切替時に呼ぶ） ---- */
   function renderAll() {
     renderProfile();
-    renderEducation();
     renderPublications();
     renderAwards();
     applyUiLabels();
