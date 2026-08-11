@@ -197,7 +197,6 @@
 
     const tp = trProfile();
     if ($("hero-greeting")) $("hero-greeting").textContent = tp.greeting || "";
-    if ($("hero-name")) $("hero-name").textContent = p.name || "";
     if ($("site-name")) $("site-name").textContent = p.name || "";
     if ($("hero-affiliation")) $("hero-affiliation").textContent = tp.affiliation || "";
     if ($("hero-program")) $("hero-program").textContent = tp.program || "";

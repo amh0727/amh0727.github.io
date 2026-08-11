@@ -40,6 +40,7 @@ p { text-wrap: pretty; }
     background: rgba(247, 248, 250, .96);
 }
 
+.site-title { line-height: 1; }
 .site-identity { width: fit-content; font-size: .92rem; font-weight: 680; letter-spacing: -.015em; text-decoration: none; }
 .header-nav { display: flex; align-items: center; gap: 26px; }
 .header-nav a, .side-nav a { color: var(--muted); font-size: .78rem; font-weight: 560; text-decoration: none; transition: color 160ms ease; }
@@ -85,8 +86,7 @@ p { text-wrap: pretty; }
 .intro { max-width: 940px; padding: 58px 0 38px; margin: 0 auto; text-align: left; }
 .intro-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: start; }
 .hero-greeting { margin-bottom: 8px; color: var(--muted); font-size: .74rem; font-weight: 620; }
-.hero-name { font-size: clamp(1.9rem, 3vw, 2.65rem); font-weight: 700; line-height: 1.08; letter-spacing: -.035em; }
-.hero-description { max-width: 68ch; margin: 18px 0 0; color: #343941; font-size: 1rem; line-height: 1.65; }
+.hero-description { max-width: 68ch; color: #343941; font-size: 1rem; line-height: 1.65; }
 .education-summary { min-height: 100%; padding-left: 48px; border-left: 1px solid var(--rule); }
 .education-summary h2 { margin-bottom: 12px; color: var(--soft); font-size: .72rem; font-weight: 650; }
 .edu-item { padding: 13px 0; border-top: 1px solid var(--rule); }
@@ -179,17 +179,15 @@ p { text-wrap: pretty; }
 
 @media (max-width: 760px) {
     html { scroll-padding-top: 64px; }
-    .site-header { min-height: 58px; grid-template-columns: 1fr; padding: 0 18px; gap: 0; }
-    .site-identity { display: none; }
-    .header-tools { grid-column: 1; width: 100%; justify-self: stretch; justify-content: space-between; }
-    .profile-links { gap: 10px; }
+    .site-header { min-height: 58px; grid-template-columns: auto 1fr; padding: 0 18px; gap: 10px; }
+    .header-tools { grid-column: 2; width: auto; justify-self: end; justify-content: flex-end; gap: 6px; }
+    .profile-links { gap: 0; }
     .lang-switch { flex: 0 0 auto; padding-left: 8px; }
     .lang-switch button { width: 28px; padding-inline: 2px; font-size: 0; }
     .lang-switch button::before { content: attr(data-lang); font-size: .64rem; text-transform: uppercase; }
     .page-shell { width: min(calc(100% - 36px), var(--page)); }
     .intro { padding: 42px 0 28px; }
     .intro-grid { grid-template-columns: 1fr; gap: 30px; }
-    .hero-name { font-size: 2rem; }
     .hero-description { margin-left: 0; font-size: 1rem; }
     .education-summary { padding: 24px 0 0; border-top: 1px solid var(--rule); border-left: 0; }
     .research-row { margin-top: 26px; grid-template-columns: 1fr; gap: 10px; }

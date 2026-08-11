@@ -34,6 +34,7 @@ Visitors commonly arrive before or after reading a paper, meeting at a conferenc
 ## Brand Commitments
 
 - Use the name "Minhyoung An" consistently.
+- Show the name once at compact sticky-header scale; do not repeat it as a profile hero.
 - Keep the tone academic, direct, multilingual, and credible.
 - Preserve ACM Computing Classification System terminology for research interests.
 - Use Apple Machine Learning Research, Google Research researcher profiles, and polished MIT/Stanford faculty homepages as craft-level references for a conventional academic profile; borrow their clarity and restraint, not their institutional branding.

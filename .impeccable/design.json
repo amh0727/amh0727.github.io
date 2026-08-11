@@ -18,7 +18,7 @@
       "focus-cobalt": { "role": "primary", "displayName": "Focus Cobalt", "canonical": "rgba(7, 92, 207, .26)", "tonalRamp": ["oklch(15% 0.04 257 / .26)", "oklch(27% 0.04 257 / .26)", "oklch(39% 0.04 257 / .26)", "oklch(51% 0.04 257 / .26)", "oklch(63% 0.04 257 / .26)", "oklch(75% 0.04 257 / .26)", "oklch(87% 0.04 257 / .26)", "oklch(95% 0.04 257 / .26)"] }
     },
     "typographyMeta": {
-      "display": { "displayName": "Researcher Name", "purpose": "The compact first-view identity heading." },
+      "display": { "displayName": "Researcher Name", "purpose": "The compact sticky-header site title; never a hero." },
       "headline": { "displayName": "Section Headline", "purpose": "Primary section headings above strong rules." },
       "title": { "displayName": "Scholarly Title", "purpose": "Publication and award titles." },
       "body": { "displayName": "Reading Text", "purpose": "Research description and explanatory prose." },
@@ -86,7 +86,7 @@
     ],
     "rules": [
       { "name": "The Cobalt Means Action Rule", "body": "Use the accent for links, active filters, active navigation, copied feedback, selection, and visible focus; do not spread it across passive surfaces.", "section": "colors" },
-      { "name": "The Evidence Before Scale Rule", "body": "Use weight, spacing, and rules before increasing type size; there is no giant-name hero.", "section": "typography" },
+      { "name": "The Evidence Before Scale Rule", "body": "Use weight, spacing, and rules before increasing type size; the name stays at header-label scale and is never repeated as a hero.", "section": "typography" },
       { "name": "The Flat Evidence Rule", "body": "Surfaces stay on one plane; use rules and restrained tonal contrast to organize information.", "section": "elevation" }
     ],
     "dos": [

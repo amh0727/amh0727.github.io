@@ -17,10 +17,10 @@ colors:
 typography:
   display:
     fontFamily: "Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Hiragino Sans, Yu Gothic UI, Noto Sans CJK JP, Noto Sans KR, sans-serif"
-    fontSize: "clamp(1.9rem, 3vw, 2.65rem)"
-    fontWeight: 700
-    lineHeight: 1.08
-    letterSpacing: "-.035em"
+    fontSize: ".92rem"
+    fontWeight: 680
+    lineHeight: 1
+    letterSpacing: "-.015em"
   headline:
     fontFamily: "Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Hiragino Sans, Yu Gothic UI, Noto Sans CJK JP, Noto Sans KR, sans-serif"
     fontSize: "1.35rem"
@@ -140,7 +140,7 @@ Cool Paper and White Surface create a quiet academic field; Ink carries evidence
 
 ### Hierarchy
 
-- **Display:** The researcher name only; compact enough to keep the first viewport useful.
+- **Display:** The researcher name appears once as a compact site title in the sticky header; it is not repeated in the profile column.
 - **Headline:** Section headings above strong rules.
 - **Title:** Publication and award titles, including external-title affordances.
 - **Body:** Biography and explanatory text; research copy stays within a 68-character measure.
@@ -149,7 +149,7 @@ Cool Paper and White Surface create a quiet academic field; Ink carries evidence
 
 ### Named Rules
 
-**The Evidence Before Scale Rule.** Use weight, spacing, and rules before increasing type size; there is no giant-name hero.
+**The Evidence Before Scale Rule.** Use weight, spacing, and rules before increasing type size; the name stays at header-label scale and is never repeated as a hero.
 
 ## Layout
 
