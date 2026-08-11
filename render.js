@@ -240,13 +240,8 @@
       .map(escapeHtml)
       .join("  ·  ");
 
-    // リンク（DOI + 追加リンク）をテキストリンクとして並べる
+    // DOI はタイトルのリンク先にだけ使用し、ここには追加リンクだけを並べる
     const linkParts = [];
-    if (pub.doi) {
-      linkParts.push(
-        `<a class="pub-link" href="https://doi.org/${escapeHtml(pub.doi)}" target="_blank" rel="noopener noreferrer">DOI</a>`
-      );
-    }
     (pub.links || []).forEach((l) => {
       if (l && l.url) {
         linkParts.push(
