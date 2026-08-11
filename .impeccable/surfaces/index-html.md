@@ -22,7 +22,7 @@ related_targets: ["index.css","render.js","data.js","i18n/ja.js","i18n/en.js","i
 ## Composition commitments
 
 - Slim utility header with identity, section navigation, language control, and all verified external destinations.
-- Restrained first viewport with compact education beside the name and one factual research-focus sentence; identity must not become a giant hero.
+- Restrained first viewport split evenly between profile and education, followed by one factual research-focus sentence; identity must not become a giant hero.
 - Compact horizontal research-interest row using existing ACM CCS terms.
 - Dense publication bibliography as the dominant body, followed by awards; education is not repeated as a list.
 - Responsive mobile flow retains publication and citation actions without a side rail.

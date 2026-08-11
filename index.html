@@ -39,14 +39,17 @@
 
     <div class="page-shell">
         <section class="intro" id="about" aria-labelledby="hero-name">
-            <p class="hero-greeting" id="hero-greeting"></p>
-            <div class="identity-line">
-                <h1 class="hero-name" id="hero-name"></h1>
-                <p class="hero-subtitle">
-                    <span id="hero-affiliation"></span><span class="subtitle-separator" aria-hidden="true"> · </span><span id="hero-program"></span>
-                </p>
+            <div class="intro-grid">
+                <div class="intro-profile">
+                    <p class="hero-greeting" id="hero-greeting"></p>
+                    <h1 class="hero-name" id="hero-name"></h1>
+                    <p class="hero-description" id="hero-description"></p>
+                </div>
+                <section class="education-summary" aria-labelledby="education-heading">
+                    <h2 id="education-heading" data-i18n="secEducation">学歴</h2>
+                    <div class="edu-list" id="edu-list"></div>
+                </section>
             </div>
-            <p class="hero-description" id="hero-description"></p>
             <div class="research-row">
                 <p class="interests-label" data-i18n="researchInterests">Research interests</p>
                 <div class="hero-interests" id="hero-interests"></div>

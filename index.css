@@ -83,12 +83,17 @@ p { text-wrap: pretty; }
 
 .page-shell { width: min(calc(100% - 48px), var(--page)); margin: 0 auto; }
 .intro { max-width: 940px; padding: 58px 0 38px; margin: 0 auto; text-align: left; }
+.intro-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: start; }
 .hero-greeting { margin-bottom: 8px; color: var(--muted); font-size: .74rem; font-weight: 620; }
-.identity-line { display: flex; align-items: baseline; gap: 22px; }
 .hero-name { font-size: clamp(1.9rem, 3vw, 2.65rem); font-weight: 700; line-height: 1.08; letter-spacing: -.035em; }
-.hero-subtitle { color: var(--muted); font-size: .82rem; }
-.subtitle-separator { color: var(--rule-strong); }
 .hero-description { max-width: 68ch; margin: 18px 0 0; color: #343941; font-size: 1rem; line-height: 1.65; }
+.education-summary { min-height: 100%; padding-left: 48px; border-left: 1px solid var(--rule); }
+.education-summary h2 { margin-bottom: 12px; color: var(--soft); font-size: .72rem; font-weight: 650; }
+.edu-item { padding: 13px 0; border-top: 1px solid var(--rule); }
+.edu-item:first-child { padding-top: 0; border-top: 0; }
+.edu-school { font-size: .88rem; font-weight: 640; letter-spacing: -.01em; }
+.edu-dept { margin-top: 3px; color: var(--muted); font-size: .76rem; }
+.edu-line { margin-top: 5px; color: var(--soft); font-size: .7rem; font-variant-numeric: tabular-nums; }
 
 .research-row {
     max-width: 940px;
@@ -183,10 +188,10 @@ p { text-wrap: pretty; }
     .lang-switch button::before { content: attr(data-lang); font-size: .64rem; text-transform: uppercase; }
     .page-shell { width: min(calc(100% - 36px), var(--page)); }
     .intro { padding: 42px 0 28px; }
-    .identity-line { display: block; }
+    .intro-grid { grid-template-columns: 1fr; gap: 30px; }
     .hero-name { font-size: 2rem; }
-    .hero-subtitle { margin-top: 9px; }
     .hero-description { margin-left: 0; font-size: 1rem; }
+    .education-summary { padding: 24px 0 0; border-top: 1px solid var(--rule); border-left: 0; }
     .research-row { margin-top: 26px; grid-template-columns: 1fr; gap: 10px; }
     .hero-interests { gap: 6px 15px; }
     .content-grid { display: block; padding-top: 30px; }

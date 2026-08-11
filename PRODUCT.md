@@ -12,7 +12,7 @@ Primary users are researchers and prospective research collaborators evaluating 
 
 ## Product Purpose
 
-Present Minhyoung An's research focus, publications, compact education context, awards, and contact paths in a form that can be scanned quickly and cited accurately. Success means a visitor can understand the research direction, inspect representative work, copy a BibTeX citation, and find a credible contact or identity link without searching through the page.
+Present Minhyoung An's research focus, publications, education, awards, and contact paths in a form that can be scanned quickly and cited accurately. Success means a visitor can understand the research direction, review education beside the profile, inspect representative work, copy a BibTeX citation, and find a credible contact or identity link without searching through the page.
 
 ## Positioning
 
@@ -50,7 +50,7 @@ Visitors commonly arrive before or after reading a paper, meeting at a conferenc
 
 ## Product Principles
 
-1. Keep education compact beside the identity; reserve full lists for publications and awards.
+1. Split the profile and education into equal adjacent columns; reserve the main lists for publications and awards.
 2. Make scholarly evidence easy to scan, open, and cite.
 3. Treat multilingual clarity as a core capability, not an add-on.
 4. Prefer factual precision and restraint over promotional claims.
