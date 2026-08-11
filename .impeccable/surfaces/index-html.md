@@ -23,7 +23,7 @@ related_targets: ["index.css","render.js","data.js","i18n/ja.js","i18n/en.js","i
 
 - Slim utility header with identity, section navigation, language control, and all verified external destinations.
 - Keep the name once at small sticky-header scale; the first viewport splits evenly between research profile and education without repeating the name as a hero.
-- Compact horizontal research-interest row using existing ACM CCS terms.
+- Compact research-interest group inside the profile column using existing ACM CCS terms.
 - Dense publication bibliography as the dominant body, followed by awards; education is not repeated as a list.
 - Responsive mobile flow retains publication and citation actions without a side rail.
 
