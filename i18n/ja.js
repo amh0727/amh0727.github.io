@@ -23,11 +23,12 @@ window.SITE_I18N.ja = {
     copied: "コピーしました",
     copyBibtex: "コピー",
     copiedBibtex: "コピーしました",
+    researchInterests: "研究分野",
   },
 
   // 自己紹介（サイドバー）
   profile: {
-    greeting: "研究分野",
+    greeting: "修士課程・研究者",
     affiliation: "奈良先端科学技術大学院大学",
     program: "博士前期課程",
     description:

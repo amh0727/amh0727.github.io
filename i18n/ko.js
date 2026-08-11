@@ -22,10 +22,11 @@ window.SITE_I18N.ko = {
     copied: "복사됨",
     copyBibtex: "복사",
     copiedBibtex: "복사됨",
+    researchInterests: "연구 분야",
   },
 
   profile: {
-    greeting: "Researcher @ NAIST",
+    greeting: "석사과정 연구자",
     affiliation: "나라첨단과학기술대학원대학",
     program: "석사과정",
     description:

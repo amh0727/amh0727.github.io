@@ -22,10 +22,11 @@ window.SITE_I18N.en = {
     copied: "Copied!",
     copyBibtex: "Copy",
     copiedBibtex: "Copied",
+    researchInterests: "Research interests",
   },
 
   profile: {
-    greeting: "Researcher @ NAIST",
+    greeting: "Master’s Student & Researcher",
     affiliation: "Nara Institute of Science and Technology",
     program: "Master's Program",
     description:

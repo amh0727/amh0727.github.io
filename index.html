@@ -32,8 +32,8 @@
                         <span id="hero-initials">MA</span>
                     </div>
                     <div>
-                        <p class="hero-greeting" id="hero-greeting"></p>
                         <h1 class="hero-name" id="hero-name"></h1>
+                        <p class="hero-greeting" id="hero-greeting"></p>
                     </div>
                 </div>
 
@@ -41,13 +41,14 @@
                     <span class="highlight" id="hero-affiliation"></span> <span id="hero-program"></span>
                 </p>
                 <p class="hero-description" id="hero-description"></p>
+                <p class="interests-label" data-i18n="researchInterests">Research interests</p>
                 <div class="hero-interests" id="hero-interests"></div>
 
                 <div class="profile-links" id="profile-links"></div>
 
                 <nav class="side-nav">
-                    <a href="#education"><span class="side-nav-num">01</span> <span data-nav="navEducation">学歴</span></a>
-                    <a href="#publications"><span class="side-nav-num">02</span> <span data-nav="navPublications">論文・発表</span></a>
+                    <a href="#publications"><span class="side-nav-num">01</span> <span data-nav="navPublications">論文・発表</span></a>
+                    <a href="#education"><span class="side-nav-num">02</span> <span data-nav="navEducation">学歴</span></a>
                     <a href="#awards"><span class="side-nav-num">03</span> <span data-nav="navAwards">受賞歴</span></a>
                 </nav>
             </div>
@@ -55,19 +56,10 @@
 
         <!-- ===== Scrollable Main Content ===== -->
         <main class="content">
-            <!-- Education Section -->
-            <section class="section" id="education">
-                <div class="section-header">
-                    <span class="section-label">01</span>
-                    <h2 data-i18n="secEducation">学歴</h2>
-                </div>
-                <div class="edu-list" id="edu-list"></div>
-            </section>
-
             <!-- Publications Section -->
             <section class="section" id="publications">
                 <div class="section-header">
-                    <span class="section-label">02</span>
+                    <span class="section-label">01</span>
                     <h2 data-i18n="secPublications">主な論文・発表</h2>
                 </div>
 
@@ -79,6 +71,15 @@
 
                 <!-- Publication list (rendered from data.js) -->
                 <div class="pub-list" id="pub-list"></div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="section" id="education">
+                <div class="section-header">
+                    <span class="section-label">02</span>
+                    <h2 data-i18n="secEducation">学歴</h2>
+                </div>
+                <div class="edu-list" id="edu-list"></div>
             </section>
 
             <!-- Awards Section -->
