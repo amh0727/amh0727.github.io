@@ -293,6 +293,7 @@
         </div>
         <div class="pub-body">
           <h3 class="pub-title">${title}</h3>
+          ${pub.englishTitle && lang !== "ja" ? `<p class="pub-english-title">${escapeHtml(pub.englishTitle)}</p>` : ""}
           ${pub.authors ? `<p class="pub-authors">${authorMarkup(t(pub.authors))}</p>` : ""}
           ${venueLine ? `<p class="pub-venue-line">${venueLine}</p>` : ""}
           ${linkParts.length ? `<div class="pub-links">${linkParts.join("")}</div>` : ""}

@@ -10,6 +10,7 @@
 
    フィールド説明:
      title    : 論文タイトル（必須）
+     englishTitle : 日本語タイトルの英訳（任意。英語・韓国語画面でタイトル下に表示）
      authors  : 著者リスト。自分の名前は **MARK** で囲むと強調表示されます。
                 例: "**Minhyoung An**, Taro Yamada, Hanako Sato"
                 （空文字 "" にすると著者行は表示されません）
@@ -70,8 +71,10 @@ window.SITE_DATA = {
   publications: [
     {
       // タイトルと著者は原文のまま。date/location/type などは { ja, en, ko } で言語別に。
-      title:
+     title:
         "行動認識のための住宅間データ転移に向けた言語を用いた空間意味情報推定手法の提案",
+      englishTitle:
+        "Language-Based Spatial Semantic Information Estimation for Cross-Home Transfer in Human Activity Recognition",
       authors: "An Minhyoung, 菊池尊勝, 庭本眞太郎, 新明勇翔, 竹田圭汰, Liu Yuexiao, 松井智一, 安本慶一",
       venue: "DICOMO 2026",
       type: { ja: "国内学会", en: "Domestic Conf.", ko: "국내 학회" },
@@ -83,6 +86,8 @@ window.SITE_DATA = {
     {
       title:
         "混練過程における生地状態変化のマルチモーダルセンシングに関する検討",
+      englishTitle:
+        "A Study on Multimodal Sensing of Dough State Changes During the Kneading Process",
       authors: "An Minhyoung, 佐々木航, 松井智一, 安本慶一, 太田茂之",
       venue: {
         ja: "第90回ユビキタスコンピューティングシステム研究会(UBI)",

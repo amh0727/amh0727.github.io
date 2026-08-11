@@ -139,6 +139,7 @@ p { text-wrap: pretty; }
 .pub-title a { text-decoration: none; }
 .pub-title a:hover { color: var(--accent); }
 .pub-title a::after { content: "↗"; padding-left: 6px; color: var(--accent); font-size: .76em; }
+.pub-english-title { margin: -2px 0 7px; color: var(--muted); font-size: .84rem; font-weight: 560; line-height: 1.45; }
 .pub-authors { margin-bottom: 4px; color: var(--muted); font-size: .81rem; line-height: 1.55; }
 .author-self { color: var(--text); font-weight: 650; }
 .pub-venue-line, .award-venue-line, .award-work { color: var(--soft); font-size: .75rem; line-height: 1.55; }

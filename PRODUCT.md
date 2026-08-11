@@ -28,6 +28,7 @@ Visitors commonly arrive before or after reading a paper, meeting at a conferenc
 - Japanese, English, and Korean interfaces with remembered language selection.
 - Publication year filtering and expandable, copyable BibTeX records.
 - DOI-backed title links where available.
+- Optional English display titles for Japanese publications, shown only in the English and Korean interfaces while citations retain the official title.
 - Responsive desktop and mobile layouts.
 - Existing factual content must remain sourced from the repository; do not invent affiliations, metrics, citations, awards, or claims.
 

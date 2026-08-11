@@ -187,6 +187,8 @@ Filters are borderless, square, transparent labels on a ruled row. Hover shifts 
 
 Each publication is a two-column bibliography row separated by a rule. The left column carries tabular year and type; the right carries title, authors, venue metadata, optional resource links, and an expandable BibTeX disclosure. External titles gain a small cobalt arrow, and the researcher name is emphasized within the author list.
 
+Japanese publications may include an English display title directly below the official title in the English and Korean interfaces. The display translation uses muted text and never replaces the official title stored in BibTeX.
+
 The open BibTeX panel uses White Surface, a neutral border, and compact mono text. Its copy action is positioned at the upper right on larger screens and shifts above the code on narrow screens. Hover and copied states turn its text and border cobalt; copied feedback returns to the original label after 1.5 seconds.
 
 ### External Profile Links
