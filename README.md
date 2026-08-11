@@ -17,7 +17,7 @@ HTML を触る必要はありません。`data.js` の `publications` 配列の
   year:    2026,            // フィルタ・バッジ・統計に使用
   date:    "2026年1月6日 ～ 1月9日",   // 任意
   location:"奈良、日本",                 // 任意
-  doi:     "10.1145/xxxxx",            // 任意（あれば DOI バッジ + タイトルリンク）
+  doi:     "10.1145/xxxxx",            // 任意（あればタイトルリンクに使用）
   url:     "https://...",              // 任意（指定なしなら doi から自動生成）
   links:   [{ label: "PDF", url: "..." }, { label: "Code", url: "..." }],  // 任意
   featured: true,                      // 任意（★ 主要論文マーク）

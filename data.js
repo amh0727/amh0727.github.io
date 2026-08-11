@@ -19,7 +19,7 @@
      year     : 年（数値）。フィルタとバッジに使用（必須）
      date     : 開催日など表示用の文字列（任意）
      location : 開催地（任意）
-     doi      : DOI（任意。あれば DOI バッジを表示）
+     doi      : DOI（任意。あれば論文タイトルのリンク先に使用）
      url      : クリック先 URL（任意。なければ DOI から自動生成）
      links    : 追加リンク [{ label: "PDF", url: "..." }, { label: "Code", url: "..." }] （任意）
      featured : true にすると「主要論文」マーク（★）が付きます（任意）
@@ -40,12 +40,12 @@ window.SITE_DATA = {
     // 顔写真を使う場合はパス/URL を入れてください（例: "me.jpg"）。空ならイニシャル表示。
     photo: "",
     name: "Minhyoung An",
-    // 研究キーワード（Hero に表示されるタグ）
+    // 研究キーワード（ACM Computing Classification System 2012 の表記に準拠）
     interests: [
-      "On-Device Language Models",
-      "Privacy-Preserving HAR",
-      "Contextual Inference",
-      "Energy Efficiency",
+      "Ubiquitous and mobile computing",
+      "Natural language processing",
+      "Privacy protections",
+      "Embedded systems",
     ],
     // プロフィール下に並ぶリンク。icon は orcid/scholar/github/mail/cv/link から選択。
     // url を入れた項目だけ表示されます（空のものは出ません）。
