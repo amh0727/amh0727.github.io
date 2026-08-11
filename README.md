@@ -19,6 +19,7 @@ HTML を触る必要はありません。`data.js` の `publications` 配列の
   location:"奈良、日本",                 // 任意
   doi:     "10.1145/xxxxx",            // 任意（あればタイトルリンクに使用）
   url:     "https://...",              // 任意（指定なしなら doi から自動生成）
+  citationKey: "an2026paper",          // 任意（BibTeX の引用キー）
   links:   [{ label: "PDF", url: "..." }, { label: "Code", url: "..." }],  // 任意
   featured: true,                      // 任意（★ 主要論文マーク）
 }

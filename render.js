@@ -81,6 +81,38 @@
     return "default";
   }
 
+  function bibValue(value) {
+    return String(value || "")
+      .replace(/([&%#_])/g, "\\$1")
+      .replace(/[{}]/g, "");
+  }
+
+  function citationValue(value) {
+    if (value && typeof value === "object" && !Array.isArray(value)) {
+      return value.en ?? value.ja ?? value.ko ?? Object.values(value)[0] ?? "";
+    }
+    return value == null ? "" : value;
+  }
+
+  function bibtexFor(pub) {
+    const fallbackKey = `an${pub.year || "paper"}`;
+    const fields = [
+      ["author", pub.bibAuthors || citationValue(pub.authors).split(/\s*,\s*/).join(" and ")],
+      ["title", citationValue(pub.title)],
+      ["booktitle", pub.bibVenue || citationValue(pub.venue)],
+      ["pages", pub.pages],
+      ["publisher", pub.publisher],
+      ["address", pub.address],
+      ["year", pub.year],
+      ["doi", pub.doi],
+      ["url", pub.url || (pub.doi ? `https://doi.org/${pub.doi}` : "")],
+    ].filter(([, value]) => value);
+
+    return `@inproceedings{${bibValue(pub.citationKey || fallbackKey)},\n${fields
+      .map(([key, value]) => `  ${key} = {${bibValue(value)}}`)
+      .join(",\n")}\n}`;
+  }
+
   /* ---- SVG アイコン ---- */
   const ICON = {
     calendar:
@@ -232,6 +264,7 @@
       ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${titleInner}</a>`
       : titleInner;
     const typeStr = t(pub.type);
+    const bibtex = bibtexFor(pub);
 
     // 会議名 · 日付 · 場所 を 1 行に
     const venueLine = [pub.venue, pub.date, pub.location]
@@ -261,6 +294,13 @@
           ${pub.authors ? `<p class="pub-authors">${authorMarkup(t(pub.authors))}</p>` : ""}
           ${venueLine ? `<p class="pub-venue-line">${venueLine}</p>` : ""}
           ${linkParts.length ? `<div class="pub-links">${linkParts.join("")}</div>` : ""}
+          <details class="citation-details">
+            <summary>BibTeX</summary>
+            <div class="citation-panel">
+              <button type="button" class="citation-copy" data-citation-copy>${escapeHtml(ui("copyBibtex"))}</button>
+              <pre><code>${escapeHtml(bibtex)}</code></pre>
+            </div>
+          </details>
         </div>
       </article>`;
   }
@@ -359,6 +399,39 @@
         const show = f === "all" || item.dataset.year === f;
         item.classList.toggle("hidden", !show);
       });
+    });
+  }
+
+  function setupCitationCopy() {
+    const list = $("pub-list");
+    if (!list) return;
+    list.addEventListener("click", (e) => {
+      const button = e.target.closest("[data-citation-copy]");
+      if (!button) return;
+      const code = button.closest(".citation-panel")?.querySelector("code");
+      if (!code) return;
+
+      const original = ui("copyBibtex");
+      const done = () => {
+        button.textContent = ui("copiedBibtex");
+        button.classList.add("copied");
+        setTimeout(() => {
+          button.textContent = original;
+          button.classList.remove("copied");
+        }, 1500);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code.textContent).then(done, done);
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = code.textContent;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); } catch (err) {}
+        document.body.removeChild(ta);
+        done();
+      }
     });
   }
 
@@ -463,6 +536,7 @@
   lang = detectLang();
   renderAll();
   setupFilters();
+  setupCitationCopy();
   setupScrollspy();
   setupLang();
 })();

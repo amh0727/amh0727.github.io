@@ -20,6 +20,8 @@ window.SITE_I18N.ko = {
     // {total} {intl} {domestic} 가 건수로 치환됩니다
     summary: "총 {total}건　·　국제 {intl}　·　국내 {domestic}",
     copied: "복사됨",
+    copyBibtex: "복사",
+    copiedBibtex: "복사됨",
   },
 
   profile: {

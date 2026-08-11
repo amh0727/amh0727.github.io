@@ -20,6 +20,8 @@ window.SITE_I18N.en = {
     // {total} {intl} {domestic} are replaced with counts
     summary: "{total} total　·　{intl} international　·　{domestic} domestic",
     copied: "Copied!",
+    copyBibtex: "Copy",
+    copiedBibtex: "Copied",
   },
 
   profile: {

@@ -21,6 +21,8 @@ window.SITE_I18N.ja = {
     // {total} {intl} {domestic} が件数に置き換わります
     summary: "全 {total} 件　・　国際 {intl}　・　国内 {domestic}",
     copied: "コピーしました",
+    copyBibtex: "コピー",
+    copiedBibtex: "コピーしました",
   },
 
   // 自己紹介（サイドバー）

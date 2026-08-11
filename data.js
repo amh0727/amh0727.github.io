@@ -21,6 +21,8 @@
      location : 開催地（任意）
      doi      : DOI（任意。あれば論文タイトルのリンク先に使用）
      url      : クリック先 URL（任意。なければ DOI から自動生成）
+     citationKey : BibTeX の引用キー（任意）
+     bibVenue / bibAuthors / pages / publisher / address : 正式な BibTeX 用メタデータ（任意）
      links    : 追加リンク [{ label: "PDF", url: "..." }, { label: "Code", url: "..." }] （任意）
      featured : true にすると「主要論文」マーク（★）が付きます（任意）
 
@@ -74,6 +76,7 @@ window.SITE_DATA = {
       venue: "DICOMO 2026",
       type: { ja: "国内学会", en: "Domestic Conf.", ko: "국내 학회" },
       year: 2026,
+      citationKey: "an2026spatial",
       date: { ja: "2026年6月24日 ～ 6月26日", en: "Jun 24–26, 2026", ko: "2026년 6월 24일 ~ 26일" },
       location: { ja: "福岡、日本", en: "Fukuoka, Japan", ko: "후쿠오카, 일본" },
     },
@@ -88,6 +91,7 @@ window.SITE_DATA = {
       },
       type: { ja: "国内学会", en: "Domestic Conf.", ko: "국내 학회" },
       year: 2026,
+      citationKey: "an2026kneading",
       date: { ja: "2026年5月27日 ～ 5月28日", en: "May 27–28, 2026", ko: "2026년 5월 27일 ~ 28일" },
       location: { ja: "奈良、日本", en: "Nara, Japan", ko: "나라, 일본" },
     },
@@ -98,6 +102,12 @@ window.SITE_DATA = {
       venue: "ICDCN 2026 (Doctoral Symposium, Short Paper)",
       type: "Short Paper",
       year: 2026,
+      citationKey: "an2026semantically",
+      bibAuthors: "An, Minhyoung and Sasaki, Wataru and Suwa, Hirohiko and Yasumoto, Keiichi",
+      bibVenue: "Companion Proceedings of the 27th International Conference on Distributed Computing and Networking",
+      pages: "48--49",
+      publisher: "Association for Computing Machinery",
+      address: "New York, NY, USA",
       date: { ja: "2026年1月6日 ～ 1月9日", en: "Jan 6–9, 2026", ko: "2026년 1월 6일 ~ 9일" },
       location: { ja: "奈良、日本", en: "Nara, Japan", ko: "나라, 일본" },
       doi: "10.1145/3737611.3776950",
@@ -109,6 +119,11 @@ window.SITE_DATA = {
       venue: "IEEE AIoT 2025",
       type: "Full Paper",
       year: 2025,
+      citationKey: "an2025slm",
+      bibAuthors: "An, Minhyoung and Sasaki, Wataru and Suwa, Hirohiko and Yasumoto, Keiichi",
+      bibVenue: "2025 IEEE Annual Congress on Artificial Intelligence of Things (AIoT)",
+      pages: "390--397",
+      publisher: "IEEE",
       date: { ja: "2025年12月3日 ～ 12月5日", en: "Dec 3–5, 2025", ko: "2025년 12월 3일 ~ 5일" },
       location: { ja: "大阪、日本", en: "Osaka, Japan", ko: "오사카, 일본" },
       doi: "10.1109/AIoT66900.2025.00063",
@@ -117,10 +132,16 @@ window.SITE_DATA = {
     {
       title:
         "Privacy-Preserving Real-Time Human Activity Recognition Using On-Device Small Language Models",
-      authors: "Minhyoung An, Wataru Sasaki, Keiichi Yasumoto",
+      authors: "Minhyoung An, Wataru Sasaki, Yuto Shimmyo, Keiichi Yasumoto",
       venue: "Wellcomp 2025 — UbiComp / ISWC 2025 Workshop",
       type: "Workshop",
       year: 2025,
+      citationKey: "an2025privacy",
+      bibAuthors: "An, Minhyoung and Sasaki, Wataru and Shimmyo, Yuto and Yasumoto, Keiichi",
+      bibVenue: "Companion of the 2025 ACM International Joint Conference on Pervasive and Ubiquitous Computing",
+      pages: "1658--1664",
+      publisher: "Association for Computing Machinery",
+      address: "New York, NY, USA",
       date: { ja: "2025年10月12日 ～ 10月16日", en: "Oct 12–16, 2025", ko: "2025년 10월 12일 ~ 16일" },
       location: { ja: "エスポー、フィンランド", en: "Espoo, Finland", ko: "에스포, 핀란드" },
       doi: "10.1145/3714394.3756346",
