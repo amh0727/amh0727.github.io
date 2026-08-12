@@ -30,6 +30,7 @@ Visitors commonly arrive before or after reading a paper, meeting at a conferenc
 - DOI-backed title links where available.
 - Optional English display titles for Japanese publications, shown only in the English and Korean interfaces while citations retain the official title.
 - Responsive desktop and mobile layouts.
+- Privacy-first aggregate visitor analytics through Cloudflare Web Analytics.
 - Existing factual content must remain sourced from the repository; do not invent affiliations, metrics, citations, awards, or claims.
 
 ## Brand Commitments
